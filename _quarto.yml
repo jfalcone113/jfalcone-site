@@ -9,10 +9,10 @@ project:
     - resources.qmd
 
 website:
-  title: "Your Name"
-  description: "Selected work, experience, and things worth sharing."
+  title: "Joseph Falcone"
+  description: "Portfolio of Joseph Falcone, an M.S. Business Analytics & AI candidate focused on data science, machine learning, deep learning, and data engineering."
   # Add your final URL when publishing:
-  # site-url: https://yourname.github.io
+  site-url: https://jfalcone.co
   navbar:
     background: light
     collapse-below: lg
@@ -31,7 +31,7 @@ website:
     location: navbar
     type: overlay
   page-footer:
-    left: "© Your Name · Made with care."
+    left: "© Joseph Falcone · Designed by me in NYC."
     right:
       - text: "Say hello ↗"
         href: contact.qmd

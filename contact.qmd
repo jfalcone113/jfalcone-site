@@ -9,36 +9,35 @@ description: "Get in touch or find me elsewhere online."
 # Good things start<br>with [a conversation.]{.accent}
 
 ::: {.lead-copy}
-Have a project in mind, a question about my work, or something interesting to share? I'd love to hear from you.
+Interested in my work, discussing a data science or machine learning opportunity, or just looking to connect? I’d love to hear from you!
 :::
 :::
 
-<!-- CUSTOMIZE: Replace the email address in BOTH the label and mailto URL.
-Replace both profile URLs and remove any platform you do not use. -->
 :::: {.contact-layout}
 ::: {.contact-primary}
 [THE BEST PLACE TO REACH ME]{.eyebrow}
 
 ## Say hello.
 
-[your.name@example.com ↗](mailto:your.name@example.com){.email-link}
+[contact@jfalcone.co ↗](mailto:contact@jfalcone.co){.email-link}
 
-A little context goes a long way. Tell me what you're working on and what you have in mind.
+Feel free to reach out — I’m always happy to connect.
+
 :::
 
 ::: {.contact-secondary}
 ## Elsewhere online
 
-[**LinkedIn**<br>Experience, connections, and conversation <span aria-hidden="true">↗</span>](https://www.linkedin.com/in/YOUR-USERNAME/){.social-link}
+[**LinkedIn**<br>Experience, connections, and conversation <span aria-hidden="true">↗</span>](https://www.linkedin.com/in/falconejoseph/){.social-link}
 
-[**GitHub**<br>Code, experiments, and works in progress <span aria-hidden="true">↗</span>](https://github.com/YOUR-USERNAME){.social-link}
+[**GitHub**<br>Code, experiments, and works in progress <span aria-hidden="true">↗</span>](https://github.com/jfalcone113){.social-link}
 
-[**The resource shelf**<br>Notes and useful things I've collected <span aria-hidden="true">→</span>](resources.qmd){.social-link}
+[**The resource shelf**<br>Study guides, notes, and technical resources <span aria-hidden="true">→</span>](resources.qmd){.social-link}
 :::
 ::::
 
 ::: {.contact-footnote}
 [BASED IN]{.eyebrow}
 
-[Your city / region] · [Your time zone]
+Knoxville, TN · Staten Island, NY · Eastern Time
 :::

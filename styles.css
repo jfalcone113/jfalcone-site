@@ -6,8 +6,8 @@
   --ink: #252622;
   --muted: #62645d;
   --line: #dcded3;
-  --accent: #ad3d24;
-  --accent-hover: #89301d;
+  --accent: #ff8200;
+  --accent-hover: #d96f00;
   --sage: #e5e9df;
   --peach: #eee0d5;
   --radius: 18px;
@@ -22,7 +22,7 @@
 /* Base and Quarto shell */
 html { scroll-padding-top: 100px; }
 body { background: var(--paper); color: var(--ink); font-family: var(--font-sans); font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-::selection { background: #eac5b4; color: var(--ink); }
+::selection { background: #ffd4a3; color: var(--ink); }
 a { color: var(--accent); text-underline-offset: 4px; text-decoration-thickness: 1px; }
 a:hover { color: var(--accent-hover); }
 a, button, input, select, summary { -webkit-tap-highlight-color: transparent; }
@@ -83,6 +83,15 @@ main { min-width: 0; }
 .hero-intro { font-size: 1.45rem; line-height: 1.35; letter-spacing: -.035em; }
 .hero .lead-copy { font-size: .99rem; max-width: 450px; }
 .hero-art { position: relative; overflow: hidden; isolation: isolate; background: var(--sage); aspect-ratio: 1 / 1.16; border-radius: 110px 110px 12px 12px; }
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 .art-label { position: absolute; top: 40px; width: 100%; text-align: center; font-size: .6rem; color: #555d4f; }
 .orbit { position: absolute; width: 78%; height: 64%; border: 1px solid #b4bdab; border-radius: 50%; top: 17%; left: 11%; }
 .orbit-one { transform: rotate(-32deg); }
@@ -134,7 +143,7 @@ main { min-width: 0; }
 .mock-top i { width: 5px; height: 5px; border-radius: 50%; background: #b29b8b; }
 .mock-layout { padding: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; height: 145px; }
 .mock-layout b { background: #dfc9b7; border-radius: 3px; }
-.mock-layout b:first-child { grid-row: span 2; background: #b47b5d; }
+.mock-layout b:first-child {grid-row: span 2; background: var(--accent);}
 .experiment-shape { width: 150px; height: 150px; border: 1px solid #7b879b; border-radius: 22%; transform: rotate(35deg); background: #c9d1df; box-shadow: 20px -20px 0 -1px #e5e8ed, 20px -20px 0 0 #7b879b, -20px 20px 0 -1px #e5e8ed, -20px 20px 0 0 #7b879b; }
 details { border-top: 1px solid var(--line); margin-top: 23px; padding-top: 17px; }
 summary { font-size: .86rem; font-weight: 600; cursor: pointer; color: var(--ink); padding: 4px 0; }

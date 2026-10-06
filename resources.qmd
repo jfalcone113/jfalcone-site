@@ -4,9 +4,9 @@ description: "A personal library of study sheets, documents, and useful things t
 ---
 
 ::: {.page-intro}
-[04 / The open notebook]{.eyebrow}
+[RESOURCES]{.eyebrow}
 
-# Learn something.<br>[Pass it along.]{.accent}
+# Sharing the wealth of<br>[knowledge.]{.accent}
 
 ::: {.lead-copy}
 A small, growing shelf of study sheets, documents, and useful things. Some are polished; others are notes from the middle of figuring it out.
@@ -17,6 +17,7 @@ A small, growing shelf of study sheets, documents, and useful things. Some are p
 To add an item, duplicate a resource-card div, give it a unique ID, and edit
 data-category. Search automatically includes all visible text in the card.
 For downloads, add files/topic.pdf and link to it inside the relevant card. -->
+```{=html}
 <div class="resource-tools" id="resource-tools" hidden>
   <div class="resource-search">
     <label for="resource-search">Find something useful</label>
@@ -32,115 +33,41 @@ For downloads, add files/topic.pdf and link to it inside the relevant card. -->
     </select>
   </div>
 </div>
+
 <p class="resource-count" id="resource-count" role="status" aria-live="polite" aria-atomic="true" hidden></p>
+```
 
 ::::: {.resource-grid #resource-library}
-:::: {.resource-card #study-sheet data-category="study"}
-[01 / Study sheet]{.eyebrow}
+:::: {.resource-card #bzan535 data-category="study"}
+[Study Book]{.eyebrow}
 
-## The one-page study sheet
+## BZAN 535 — Statistical Methods
 
-A reusable structure for turning a big topic into a concise reference.
+An interactive Quarto study guide covering key concepts and examples for the BZAN 535 midterm (Fall 2026).
 
-[Study]{.tag} [Template]{.tag}
+[BZAN 535]{.tag} [Fall 2026]{.tag}
 
-<details>
-<summary>Open the study-sheet template</summary>
-
-### Topic & purpose
-
-Name the topic and the question this sheet should help answer.
-
-### Core ideas
-
-List three to five essential concepts. Define each in plain language.
-
-### Worked example
-
-Include one example from start to finish, with the reasoning between steps.
-
-### Watch out for
-
-Note common mistakes, assumptions, and exceptions.
-
-### Test yourself
-
-Write a few questions you can answer without looking at the sheet.
-
-</details>
-<!-- Replace the template with your notes, or add a real download:
-[Download study sheet ↓](files/study-sheet.pdf)
--->
+[Open resource ↗](https://bzan535.jfalcone.co){.text-link}
 ::::
 
-:::: {.resource-card #reading-notes data-category="documents"}
-[02 / Document]{.eyebrow}
+:::: {.resource-card #bzan554 data-category="study"}
+[Study Book]{.eyebrow}
 
-## Reading notes that stick
+## BZAN 554 — Deep Learning
 
-A simple way to capture what matters from a book, paper, or article.
+A continuously growing guide to BZAN 554 — Deep Learning, updated throughout the course with new concepts and reference material.
 
-[Reading]{.tag} [Notes]{.tag}
-
-<details>
-<summary>Open the reading-note template</summary>
-
-### Source
-
-Record the title, author, publication date, and a source link.
-
-### The central idea
-
-Summarize the argument in your own words, in two or three sentences.
-
-### Evidence & questions
-
-What supports the argument? What assumptions or questions remain?
-
-### Connections
-
-How does this connect with something you already know?
-
-### Put it to use
-
-Name one practical application or next step.
-
-</details>
+[Coming Soon]{.tag}
 ::::
 
-:::: {.resource-card #learning-map data-category="collections"}
-[03 / Collection]{.eyebrow}
+:::: {.resource-card #bzan542 data-category="study"}
+[Study Book]{.eyebrow}
 
-## A map for learning something new
+## BZAN 542 — Machine Learning
 
-A lightweight framework for organizing a topic before diving in.
+A continuously growing guide to BZAN 542 — Machine Learning, covering predictive modeling, model evaluation, clustering, and other core machine learning methods.
 
-[Learning]{.tag} [Planning]{.tag}
-
-<details>
-<summary>Open the learning-map template</summary>
-
-### Start with a destination
-
-Define something specific you want to understand or be able to do.
-
-### Find the foundations
-
-List the prerequisites, key terms, and a small set of reliable starting sources.
-
-### Learn by making
-
-Choose a small exercise or project that puts the ideas into practice.
-
-### Keep a question list
-
-Collect points of confusion as you go. Revisit them after each session.
-
-### Share a useful artifact
-
-Create a short explanation, example, or reference sheet for someone following behind you.
-
-</details>
+[Coming Soon]{.tag}
 ::::
 :::::
 
@@ -149,7 +76,7 @@ Create a short explanation, example, or reference sheet for someone following be
 ::: {.shelf-note}
 **A note about this shelf**
 
-Learning is better when it's shared. These starter templates are here to be useful; as the collection grows, each entry can become a note, a download, or a link to something worth reading.
+If you’re taking one of these courses, feel free to use my notes and study guides as a supplemental resource. I built them to strengthen my own understanding, and I’m sharing them in case they help you too.
 :::
 
 ```{=html}

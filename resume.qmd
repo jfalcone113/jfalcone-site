@@ -13,27 +13,23 @@ body-classes: resume-page
 The experience, skills, and learning I bring to the work.
 :::
 
-<button class="button button-secondary print-button" type="button" onclick="window.print()">Print / save as PDF ↗</button>
-<!-- For a separately designed PDF, add it under files/ and use:
-[Download resume ↓](files/resume.pdf){.button .button-primary}
--->
+[Download resume ↓](jfres09212026.pdf){.button .button-primary}
+
 :::
 
-<!-- CUSTOMIZE: Replace all bracketed text. Remove sections you do not need. -->
 :::: {.resume-layout}
 ::: {.resume-aside}
-## Your Name
+## Joseph A. Falcone
 
-[Your professional focus or headline]
+Master of Science in Business Analytics & AI candidate
 
-[City, Region · Time zone]
+Knoxville, TN
 
-[your.name@example.com](mailto:your.name@example.com)
+[contact@jfalcone.co](mailto:contact@jfalcone.co)
 
-<!-- Replace these placeholder URLs before publishing. -->
-[LinkedIn ↗](https://www.linkedin.com/in/YOUR-USERNAME/)
+[LinkedIn ↗](https://www.linkedin.com/in/falconejoseph)
 
-[GitHub ↗](https://github.com/YOUR-USERNAME)
+[GitHub ↗](https://github.com/jfalcone113)
 
 ### On this page
 
@@ -41,41 +37,63 @@ The experience, skills, and learning I bring to the work.
 [Experience](#experience) \
 [Education](#education) \
 [Skills](#skills) \
-[Selected work](#selected-work) \
-[Beyond the work](#beyond-the-work)
+[Beyond the work](#beyond-the-work) \
+[Selected work](#selected-work)
 :::
 
 ::::: {.resume-main}
+
 :::: {.resume-section #profile}
 ## Profile
 
-[Write two or three sentences about your background, strengths, and the kind of problems you enjoy solving. Be specific about what you bring to a team.]
+M.S. Business Analytics and AI candidate with experience in data engineering, machine learning, analytics, relational database design, and optimization. Skilled in Python, R, SQL, and Tableau, with experience building end-to-end data workflows, improving data quality, and transforming complex datasets into analytical and decision-support solutions.
 ::::
 
 :::: {.resume-section #experience}
 ## Experience
 
 ::: {.resume-entry}
-[Month YYYY — Present]{.entry-date}
+[Aug 2026 — Present]{.entry-date}
 
-### [Job title]
+### Data Support Specialist
 
-[Organization · Location or Remote]{.entry-subtitle}
+[Haslam College of Business · Knoxville, TN]{.entry-subtitle}
 
-- [Lead with an achievement: what you did, how you did it, and what changed.]
-- [Describe a project or responsibility that demonstrates relevant expertise.]
-- [Include a supported measure of scale, quality, efficiency, or impact where available.]
+- Built an integrated alumni and employer engagement data framework by transforming fragmented records into a structured foundation for analysis and reporting.
+- Designed relational database models and workflows to improve data quality and support reliable tracking.
+- Built analytics and reporting solutions that converted raw engagement data into actionable information for Graduate Business Programs alumni and career-development teams.
 :::
 
 ::: {.resume-entry}
-[Month YYYY — Month YYYY]{.entry-date}
+[Mar 2026 — May 2026]{.entry-date}
 
-### [Previous job title]
+### Financial Consultant
 
-[Organization · Location or Remote]{.entry-subtitle}
+[UT Federal Credit Union · Knoxville, TN]{.entry-subtitle}
 
-- [Describe your most meaningful contribution.]
-- [Explain a challenge you helped solve or a process you improved.]
+- Advised members on banking products and financial solutions such as checking, savings, and credit accounts, aligning recommendations with individual financial goals.
+- Built and maintained strong member relationships through personalized service, attention to detail, and support, facilitating a trusted fiduciary relationship.
+:::
+
+::: {.resume-entry}
+[Jun 2025 — Jan 2026]{.entry-date}
+
+### Business Process Improvement Aid
+
+[NYPD Headquarters · New York, NY]{.entry-subtitle}
+
+- Collaborated across Personnel departments to align project requirements and ensure accurate implementation of process improvement strategies.
+- Developed dashboards, KPIs, process documentation, and reporting materials to improve clarity, communication, and understanding across teams and stakeholders.
+:::
+
+::: {.resume-entry}
+[Apr 2025 — May 2026]{.entry-date}
+
+### Vice President of Industry Outreach
+
+[Business Analytics Society · University of Tennessee]{.entry-subtitle}
+
+- Collaborated with faculty, alumni, and industry leaders to align organization events and resources with academic and industry trends, enhancing the practical value of student-member experiences.
 :::
 ::::
 
@@ -83,13 +101,19 @@ The experience, skills, and learning I bring to the work.
 ## Education
 
 ::: {.resume-entry}
-[Graduation year]{.entry-date}
+[Expected May 2027]{.entry-date}
 
-### [Degree or qualification, field of study]
+### Master of Science in Business Analytics and AI
 
-[Institution · Location]{.entry-subtitle}
+[University of Tennessee, Haslam College of Business · Knoxville, TN]{.entry-subtitle}
+:::
 
-[Optional: relevant coursework, research, thesis, or honors.]
+::: {.resume-entry}
+[May 2026]{.entry-date}
+
+### Bachelor of Science in Business Administration
+
+[University of Tennessee, Haslam College of Business · Knoxville, TN]{.entry-subtitle}
 :::
 ::::
 
@@ -97,36 +121,49 @@ The experience, skills, and learning I bring to the work.
 ## Skills
 
 ::: {.skill-row}
-**Methods**
+**Data Science & Machine Learning**
 
-[Your research, analytical, design, or technical methods]
+Pandas, NumPy, scikit-learn, XGBoost, TensorFlow, predictive modeling, model evaluation, statistical analysis
 :::
+
 ::: {.skill-row}
-**Tools**
+**Data Engineering**
 
-[Languages, software, platforms, or equipment you use confidently]
+Relational database design, data cleaning, data transformation, data integration, data quality
 :::
+
 ::: {.skill-row}
-**Collaboration**
+**Optimization**
 
-[Communication, facilitation, leadership, or other relevant strengths]
+Pyomo, mathematical programming, constrained optimization
 :::
-::::
 
-:::: {.resume-section #selected-work}
-## Selected work
+::: {.skill-row}
+**Visualization**
 
-### [Project title]
+Tableau, Matplotlib, ggplot2
+:::
 
-[One sentence about the project and your contribution.]
+::: {.skill-row}
+**Programming**
 
-[Explore my projects →](projects.qmd)
+Python, R, SQL
+:::
 ::::
 
 :::: {.resume-section #beyond-the-work}
 ## Beyond the work
 
-[Add relevant volunteering, community involvement, certifications, publications, languages, or interests. Split this into separate sections if needed.]
+- 2026 Business Analytics Case Competition — 1st Place, Graduate Division
+- Department of Business Analytics Student Leader Award — May 2026
+
 ::::
+
+:::: {.resume-section #selected-work}
+## Selected work
+
+[Explore my projects →](projects.qmd)
+::::
+
 :::::
 ::::

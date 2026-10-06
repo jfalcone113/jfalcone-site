@@ -6,6 +6,22 @@ description: "Selected projects, experiments, and past work."
 ::: {.page-intro}
 [01 / Selected work]{.eyebrow}
 
+# Projects are<br>[coming soon.]{.accent}
+
+::: {.lead-copy}
+I’m currently organizing and documenting selected work across data science, machine learning, deep learning, optimization, and data engineering.
+:::
+:::
+
+::: {.closing-note}
+In the meantime, you can explore my [GitHub ↗](https://github.com/jfalcone113) or connect with me on [LinkedIn ↗](https://www.linkedin.com/in/falconejoseph/).
+:::
+
+<!--
+
+::: {.page-intro}
+[01 / Selected work]{.eyebrow}
+
 # From question<br>to [something useful.]{.accent}
 
 ::: {.lead-copy}
@@ -13,9 +29,6 @@ A collection of projects, experiments, and past work. The process matters as muc
 :::
 :::
 
-<!-- CUSTOMIZE: These are sample project structures, not claims about your work.
-Replace their titles, categories, descriptions, and case-study prompts.
-Duplicate a project-card block to add another project. -->
 ::::: {.project-stack}
 :::: {.project-card #project-one}
 ::: {.project-art .art-analysis aria-hidden="true"}
@@ -53,9 +66,6 @@ Use this space for a research or analysis project. Explain the question, who nee
 
 [Share the result and what you learned. Use a metric only if you can support it.]
 
-<!-- Add real links when ready, for example:
-[Read the report](files/project-report.pdf) · [View code](https://github.com/YOUR-USERNAME/YOUR-REPO)
--->
 </details>
 :::
 ::::
@@ -92,7 +102,6 @@ Introduce an app, dashboard, website, or other thing you built. Focus on the per
 
 [Explain what works, how you evaluated it, and what you would improve next.]
 
-<!-- Add a real demo link or repository link here. -->
 </details>
 :::
 ::::
@@ -136,3 +145,5 @@ Make room for a personal experiment, creative project, course assignment, or wor
 ::: {.closing-note}
 Want to hear more about the work? [Get in touch →](contact.qmd)
 :::
+
+-->

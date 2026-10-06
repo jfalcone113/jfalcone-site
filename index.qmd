@@ -1,23 +1,22 @@
 ---
 title: "Home"
-pagetitle: "Your Name — Portfolio"
-description: "Hello, I'm Your Name. Explore my work, experience, and personal library."
+pagetitle: "Joseph Falcone — M.S. Business Analytics & AI Candidate"
+description: "Portfolio of Joseph Falcone, an M.S. Business Analytics and AI candidate focused on data science, machine learning, deep learning, and data engineering."
 body-classes: home-page
 ---
 
-<!-- CUSTOMIZE: Replace Your Name, the introduction, and the three focus areas. -->
 ::::: {.hero}
 :::: {.hero-copy}
 [A little about me]{.eyebrow}
 
-# Hello, I'm<br> [Your Name.]{.accent}
+# Hello, I'm<br> [Joseph Falcone.]{.accent}
 
 ::: {.hero-intro}
-Curious by nature.<br>Thoughtful by design.
+Building with AI,<br>not just talking about it.
 :::
 
 ::: {.lead-copy}
-I turn interesting questions into useful work. This is a home for the projects I build, the things I learn, and the ideas I want to share.
+I’m a Master of Science in Business Analytics & AI candidate at the University of Tennessee, Knoxville, focused on deep learning, machine learning, statistical modeling, and data engineering. I’m pursuing a career in data science, building predictive models, scalable systems, and practical data-driven solutions.
 :::
 
 ::: {.actions}
@@ -26,21 +25,15 @@ I turn interesting questions into useful work. This is a home for the projects I
 :::
 ::::
 
-:::: {.hero-art aria-hidden="true"}
-<div class="art-label">ALWAYS A WORK IN PROGRESS</div>
-<div class="orbit orbit-one"></div>
-<div class="orbit orbit-two"></div>
-<div class="orbit orbit-three"></div>
-<div class="art-center"><span>Make.</span><span>Learn.</span><span>Repeat.</span></div>
-<div class="art-dot"></div>
-<div class="art-foot"><span>IDEAS → ACTION</span><span>01 / ∞</span></div>
+:::: {.hero-art}
+<img src="profile_pic.png" class="hero-photo" alt="Joseph Falcone">
 ::::
 :::::
 
 ::: {.intro-strip}
 [THE THROUGHLINE]{.eyebrow}
 
-Good questions. Clear thinking. Work that matters.
+AI is here. It's time we use it.
 :::
 
 :::: {.section-heading}
@@ -59,7 +52,7 @@ A snapshot of what I do, where I've been, and what I'm learning.
 
 ### Selected work
 
-Projects, experiments, and past work—with the thinking behind the outcome.
+Projects, research, and past work, with the thinking behind the outcome.
 
 [View projects ↗](projects.qmd){.text-link}
 :::
@@ -85,15 +78,14 @@ Study sheets, useful documents, and small things worth passing along.
 
 :::: {.about-band}
 ::: {}
-[02 / My approach]{.eyebrow}
+[02 / My Skillset]{.eyebrow}
 
-## Equal parts curiosity<br>and follow-through.
+## From raw data.<br>To useful models.
 :::
 ::: {}
-I like work that starts with a good question and ends with something useful. My approach is simple: understand the problem, make the thinking visible, and keep improving the result.
+I work across the full data science workflow, from cleaning and structuring data to building, evaluating, and interpreting models. My background includes machine learning, deep learning, statistical modeling, optimization, and data engineering, with a focus on turning complex data into reliable models, scalable systems, and useful insights.
 
-<!-- CUSTOMIZE: Replace these with your actual interests or strengths. -->
-[Research & exploration]{.tag} [Building & iteration]{.tag} [Clear communication]{.tag}
+[Python]{.tag} [R]{.tag} [SQL]{.tag} [TensorFlow]{.tag} [Machine Learning]{.tag} [Statistical Modeling]{.tag} [Data Engineering]{.tag} [Optimization]{.tag}
 :::
 ::::
 
