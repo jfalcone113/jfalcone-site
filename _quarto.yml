@@ -7,11 +7,12 @@ project:
     - resume.qmd
     - contact.qmd
     - resources.qmd
+  resources:
+    - CNAME
 
 website:
   title: "Joseph Falcone"
   description: "Portfolio of Joseph Falcone, an M.S. Business Analytics & AI candidate focused on data science, machine learning, deep learning, and data engineering."
-  # Add your final URL when publishing:
   site-url: https://jfalcone.co
   navbar:
     background: light
