@@ -1,0 +1,135 @@
+[
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "RESOURCES\n\n\n\nA small, growing shelf of study sheets, documents, and useful things. Some are polished; others are notes from the middle of figuring it out.\nNo matches yet. Try another search or choose “Everything.”"
+  },
+  {
+    "objectID": "resources.html#bzan-535-statistical-methods",
+    "href": "resources.html#bzan-535-statistical-methods",
+    "title": "Resources",
+    "section": "BZAN 535 — Statistical Methods",
+    "text": "BZAN 535 — Statistical Methods\nAn interactive Quarto study guide covering key concepts and examples for the BZAN 535 midterm (Fall 2026).\nBZAN 535 Fall 2026\nOpen resource ↗"
+  },
+  {
+    "objectID": "resources.html#bzan-554-deep-learning",
+    "href": "resources.html#bzan-554-deep-learning",
+    "title": "Resources",
+    "section": "BZAN 554 — Deep Learning",
+    "text": "BZAN 554 — Deep Learning\nA continuously growing guide to BZAN 554 — Deep Learning, updated throughout the course with new concepts and reference material.\nComing Soon"
+  },
+  {
+    "objectID": "resources.html#bzan-542-machine-learning",
+    "href": "resources.html#bzan-542-machine-learning",
+    "title": "Resources",
+    "section": "BZAN 542 — Machine Learning",
+    "text": "BZAN 542 — Machine Learning\nA continuously growing guide to BZAN 542 — Machine Learning, covering predictive modeling, model evaluation, clustering, and other core machine learning methods.\nComing Soon"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Resume",
+    "section": "",
+    "text": "02 / Experience & background\n\n\n\nThe experience, skills, and learning I bring to the work.\n\nDownload resume ↓"
+  },
+  {
+    "objectID": "resume.html#joseph-a.-falcone",
+    "href": "resume.html#joseph-a.-falcone",
+    "title": "Resume",
+    "section": "Joseph A. Falcone",
+    "text": "Joseph A. Falcone\nMaster of Science in Business Analytics & AI candidate\nKnoxville, TN\ncontact@jfalcone.co\nLinkedIn ↗\nGitHub ↗\n\nOn this page\nProfile\nExperience\nEducation\nSkills\nBeyond the work\nSelected work"
+  },
+  {
+    "objectID": "resume.html#profile",
+    "href": "resume.html#profile",
+    "title": "Resume",
+    "section": "Profile",
+    "text": "Profile\nM.S. Business Analytics and AI candidate with experience in data engineering, machine learning, analytics, relational database design, and optimization. Skilled in Python, R, SQL, and Tableau, with experience building end-to-end data workflows, improving data quality, and transforming complex datasets into analytical and decision-support solutions."
+  },
+  {
+    "objectID": "resume.html#experience",
+    "href": "resume.html#experience",
+    "title": "Resume",
+    "section": "Experience",
+    "text": "Experience\n\nAug 2026 — Present\n\nData Support Specialist\nHaslam College of Business · Knoxville, TN\n\nBuilt an integrated alumni and employer engagement data framework by transforming fragmented records into a structured foundation for analysis and reporting.\nDesigned relational database models and workflows to improve data quality and support reliable tracking.\nBuilt analytics and reporting solutions that converted raw engagement data into actionable information for Graduate Business Programs alumni and career-development teams.\n\n\n\n\nMar 2026 — May 2026\n\nFinancial Consultant\nUT Federal Credit Union · Knoxville, TN\n\nAdvised members on banking products and financial solutions such as checking, savings, and credit accounts, aligning recommendations with individual financial goals.\nBuilt and maintained strong member relationships through personalized service, attention to detail, and support, facilitating a trusted fiduciary relationship.\n\n\n\n\nJun 2025 — Jan 2026\n\nBusiness Process Improvement Aid\nNYPD Headquarters · New York, NY\n\nCollaborated across Personnel departments to align project requirements and ensure accurate implementation of process improvement strategies.\nDeveloped dashboards, KPIs, process documentation, and reporting materials to improve clarity, communication, and understanding across teams and stakeholders.\n\n\n\n\nApr 2025 — May 2026\n\nVice President of Industry Outreach\nBusiness Analytics Society · University of Tennessee\n\nCollaborated with faculty, alumni, and industry leaders to align organization events and resources with academic and industry trends, enhancing the practical value of student-member experiences."
+  },
+  {
+    "objectID": "resume.html#education",
+    "href": "resume.html#education",
+    "title": "Resume",
+    "section": "Education",
+    "text": "Education\n\nExpected May 2027\n\nMaster of Science in Business Analytics and AI\nUniversity of Tennessee, Haslam College of Business · Knoxville, TN\n\n\n\nMay 2026\n\nBachelor of Science in Business Administration\nUniversity of Tennessee, Haslam College of Business · Knoxville, TN"
+  },
+  {
+    "objectID": "resume.html#skills",
+    "href": "resume.html#skills",
+    "title": "Resume",
+    "section": "Skills",
+    "text": "Skills\n\nData Science & Machine Learning\nPandas, NumPy, scikit-learn, XGBoost, TensorFlow, predictive modeling, model evaluation, statistical analysis\n\n\nData Engineering\nRelational database design, data cleaning, data transformation, data integration, data quality\n\n\nOptimization\nPyomo, mathematical programming, constrained optimization\n\n\nVisualization\nTableau, Matplotlib, ggplot2\n\n\nProgramming\nPython, R, SQL"
+  },
+  {
+    "objectID": "resume.html#beyond-the-work",
+    "href": "resume.html#beyond-the-work",
+    "title": "Resume",
+    "section": "Beyond the work",
+    "text": "Beyond the work\n\n2026 Business Analytics Case Competition — 1st Place, Graduate Division\nDepartment of Business Analytics Student Leader Award — May 2026"
+  },
+  {
+    "objectID": "resume.html#selected-work",
+    "href": "resume.html#selected-work",
+    "title": "Resume",
+    "section": "Selected work",
+    "text": "Selected work\nExplore my projects →"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "A little about me\n\n\n\nBuilding with AI,not just talking about it.\n\n\nI’m a Master of Science in Business Analytics & AI candidate at the University of Tennessee, Knoxville, focused on deep learning, machine learning, statistical modeling, and data engineering. I’m pursuing a career in data science, building predictive models, scalable systems, and practical data-driven solutions.\n\n\nExplore my work ↗ A bit about me →"
+  },
+  {
+    "objectID": "index.html#a-few-places-to-start.",
+    "href": "index.html#a-few-places-to-start.",
+    "title": "Home",
+    "section": "A few places to start.",
+    "text": "A few places to start."
+  },
+  {
+    "objectID": "index.html#from-raw-data.-to-useful-models.",
+    "href": "index.html#from-raw-data.-to-useful-models.",
+    "title": "Home",
+    "section": "From raw data.To useful models.",
+    "text": "From raw data.To useful models."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "01 / Selected work\n\nProjects arecoming soon.\n\nI’m currently organizing and documenting selected work across data science, machine learning, deep learning, optimization, and data engineering.\n\n\n\n\nIn the meantime, you can explore my GitHub ↗ or connect with me on LinkedIn ↗."
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "03 / Let’s connect\n\n\n\nInterested in my work, discussing a data science or machine learning opportunity, or just looking to connect? I’d love to hear from you!"
+  },
+  {
+    "objectID": "contact.html#say-hello.",
+    "href": "contact.html#say-hello.",
+    "title": "Contact",
+    "section": "Say hello.",
+    "text": "Say hello.\ncontact@jfalcone.co ↗\nFeel free to reach out — I’m always happy to connect."
+  },
+  {
+    "objectID": "contact.html#elsewhere-online",
+    "href": "contact.html#elsewhere-online",
+    "title": "Contact",
+    "section": "Elsewhere online",
+    "text": "Elsewhere online\nLinkedInExperience, connections, and conversation ↗\nGitHubCode, experiments, and works in progress ↗\nThe resource shelfStudy guides, notes, and technical resources →"
+  }
+]
