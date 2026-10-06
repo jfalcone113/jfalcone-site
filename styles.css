@@ -49,9 +49,30 @@ main { min-width: 0; }
 .navbar-nav .nav-link.active .menu-text { border-bottom: 2px solid var(--accent); padding-bottom: 7px; }
 .navbar-toggler { border: 0; }
 #quarto-search { margin-left: 24px; }
-.nav-footer { max-width: 1120px; margin: 20px auto 0; padding: 28px 0; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
-.nav-footer a { color: var(--ink); }
-.nav-footer-left, .nav-footer-right { min-height: 0; }
+#quarto-footer {
+  background: var(--paper) !important;
+}
+
+#quarto-footer .nav-footer {
+  background: transparent !important;
+  max-width: 1120px;
+  margin: 20px auto 0;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+  font-size: .8rem;
+  color: var(--muted);
+}
+
+#quarto-footer .nav-footer-left,
+#quarto-footer .nav-footer-center,
+#quarto-footer .nav-footer-right {
+  background: transparent !important;
+  min-height: 0;
+}
+
+#quarto-footer .nav-footer a {
+  color: var(--ink);
+}
 
 /* Shared typography, buttons, and labels */
 .accent { color: var(--accent); }
@@ -219,7 +240,7 @@ details p { color: var(--muted); font-size: .88rem; }
   .navigation-card, .resource-card { padding: 22px; }
   .resume-layout { gap: 40px; grid-template-columns: 210px 1fr; }
   .contact-layout { gap: 30px; }
-  .nav-footer { margin-inline: 32px; }
+  #quarto-footer .nav-footer { margin-inline: 32px; }
 }
 @media (max-width: 767px) {
   body { font-size: 16px; }
@@ -256,7 +277,11 @@ details p { color: var(--muted); font-size: .88rem; }
   .resource-card { padding: 27px; }
   .resource-card h2 { margin-top: 18px; }
   .closing-note { font-size: 1.05rem; margin-top: 30px; padding-top: 30px; }
-  .nav-footer { margin-inline: 20px; padding: 22px 0; gap: 14px; }
+  #quarto-footer .nav-footer {
+  margin-inline: 20px;
+  padding: 22px 0;
+  gap: 14px;
+}
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
