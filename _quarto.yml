@@ -1,0 +1,50 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - projects.qmd
+    - resume.qmd
+    - contact.qmd
+    - resources.qmd
+
+website:
+  title: "Your Name"
+  description: "Selected work, experience, and things worth sharing."
+  # Add your final URL when publishing:
+  # site-url: https://yourname.github.io
+  navbar:
+    background: light
+    collapse-below: lg
+    left:
+      - href: index.qmd
+        text: Home
+      - href: projects.qmd
+        text: Projects
+      - href: resume.qmd
+        text: Resume
+      - href: contact.qmd
+        text: Contact
+      - href: resources.qmd
+        text: Resources
+  search:
+    location: navbar
+    type: overlay
+  page-footer:
+    left: "© Your Name · Made with care."
+    right:
+      - text: "Say hello ↗"
+        href: contact.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    lang: en
+    page-layout: full
+    title-block-banner: false
+    toc: false
+    anchor-sections: false
+    smooth-scroll: true
+    link-external-newwindow: false
+

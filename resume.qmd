@@ -1,0 +1,132 @@
+---
+title: "Resume"
+description: "Experience, education, skills, and selected accomplishments."
+body-classes: resume-page
+---
+
+::: {.page-intro}
+[02 / Experience & background]{.eyebrow}
+
+# The longer [story.]{.accent}
+
+::: {.lead-copy}
+The experience, skills, and learning I bring to the work.
+:::
+
+<button class="button button-secondary print-button" type="button" onclick="window.print()">Print / save as PDF ↗</button>
+<!-- For a separately designed PDF, add it under files/ and use:
+[Download resume ↓](files/resume.pdf){.button .button-primary}
+-->
+:::
+
+<!-- CUSTOMIZE: Replace all bracketed text. Remove sections you do not need. -->
+:::: {.resume-layout}
+::: {.resume-aside}
+## Your Name
+
+[Your professional focus or headline]
+
+[City, Region · Time zone]
+
+[your.name@example.com](mailto:your.name@example.com)
+
+<!-- Replace these placeholder URLs before publishing. -->
+[LinkedIn ↗](https://www.linkedin.com/in/YOUR-USERNAME/)
+
+[GitHub ↗](https://github.com/YOUR-USERNAME)
+
+### On this page
+
+[Profile](#profile) \
+[Experience](#experience) \
+[Education](#education) \
+[Skills](#skills) \
+[Selected work](#selected-work) \
+[Beyond the work](#beyond-the-work)
+:::
+
+::::: {.resume-main}
+:::: {.resume-section #profile}
+## Profile
+
+[Write two or three sentences about your background, strengths, and the kind of problems you enjoy solving. Be specific about what you bring to a team.]
+::::
+
+:::: {.resume-section #experience}
+## Experience
+
+::: {.resume-entry}
+[Month YYYY — Present]{.entry-date}
+
+### [Job title]
+
+[Organization · Location or Remote]{.entry-subtitle}
+
+- [Lead with an achievement: what you did, how you did it, and what changed.]
+- [Describe a project or responsibility that demonstrates relevant expertise.]
+- [Include a supported measure of scale, quality, efficiency, or impact where available.]
+:::
+
+::: {.resume-entry}
+[Month YYYY — Month YYYY]{.entry-date}
+
+### [Previous job title]
+
+[Organization · Location or Remote]{.entry-subtitle}
+
+- [Describe your most meaningful contribution.]
+- [Explain a challenge you helped solve or a process you improved.]
+:::
+::::
+
+:::: {.resume-section #education}
+## Education
+
+::: {.resume-entry}
+[Graduation year]{.entry-date}
+
+### [Degree or qualification, field of study]
+
+[Institution · Location]{.entry-subtitle}
+
+[Optional: relevant coursework, research, thesis, or honors.]
+:::
+::::
+
+:::: {.resume-section #skills}
+## Skills
+
+::: {.skill-row}
+**Methods**
+
+[Your research, analytical, design, or technical methods]
+:::
+::: {.skill-row}
+**Tools**
+
+[Languages, software, platforms, or equipment you use confidently]
+:::
+::: {.skill-row}
+**Collaboration**
+
+[Communication, facilitation, leadership, or other relevant strengths]
+:::
+::::
+
+:::: {.resume-section #selected-work}
+## Selected work
+
+### [Project title]
+
+[One sentence about the project and your contribution.]
+
+[Explore my projects →](projects.qmd)
+::::
+
+:::: {.resume-section #beyond-the-work}
+## Beyond the work
+
+[Add relevant volunteering, community involvement, certifications, publications, languages, or interests. Split this into separate sections if needed.]
+::::
+:::::
+::::

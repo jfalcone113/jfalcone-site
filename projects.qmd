@@ -1,0 +1,138 @@
+---
+title: "Projects"
+description: "Selected projects, experiments, and past work."
+---
+
+::: {.page-intro}
+[01 / Selected work]{.eyebrow}
+
+# From question<br>to [something useful.]{.accent}
+
+::: {.lead-copy}
+A collection of projects, experiments, and past work. The process matters as much as the finished thing.
+:::
+:::
+
+<!-- CUSTOMIZE: These are sample project structures, not claims about your work.
+Replace their titles, categories, descriptions, and case-study prompts.
+Duplicate a project-card block to add another project. -->
+::::: {.project-stack}
+:::: {.project-card #project-one}
+::: {.project-art .art-analysis aria-hidden="true"}
+<span class="project-art-label">01 / INVESTIGATE</span>
+<div class="bar-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<span class="project-art-caption">FIND THE SIGNAL.</span>
+:::
+::: {.project-body}
+[Research · Analysis]{.eyebrow}
+
+## Making a complex question clear
+
+[Example project — replace with your work]{.sample-label}
+
+Use this space for a research or analysis project. Explain the question, who needed the answer, and why it mattered.
+
+[Research]{.tag} [Analysis]{.tag} [Communication]{.tag}
+
+<details class="case-study">
+<summary>Explore the project outline <span aria-hidden="true">↗</span></summary>
+
+### The question
+
+[What problem were you trying to solve? Who was it for?]
+
+### My contribution
+
+[Describe your role, collaborators, tools, and key decisions.]
+
+### The approach
+
+[Explain the evidence, methods, constraints, and tradeoffs.]
+
+### The outcome
+
+[Share the result and what you learned. Use a metric only if you can support it.]
+
+<!-- Add real links when ready, for example:
+[Read the report](files/project-report.pdf) · [View code](https://github.com/YOUR-USERNAME/YOUR-REPO)
+-->
+</details>
+:::
+::::
+
+:::: {.project-card #project-two}
+::: {.project-art .art-build aria-hidden="true"}
+<span class="project-art-label">02 / BUILD</span>
+<div class="mock-window"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-layout"><b></b><b></b><b></b></div></div>
+<span class="project-art-caption">TURN IDEAS INTO TOOLS.</span>
+:::
+::: {.project-body}
+[Design · Development]{.eyebrow}
+
+## A small tool with a real purpose
+
+[Example project — replace with your work]{.sample-label}
+
+Introduce an app, dashboard, website, or other thing you built. Focus on the person using it and the problem it helps them solve.
+
+[Prototyping]{.tag} [Development]{.tag} [Iteration]{.tag}
+
+<details class="case-study">
+<summary>Explore the project outline <span aria-hidden="true">↗</span></summary>
+
+### The need
+
+[What was difficult before this existed?]
+
+### The build
+
+[Describe your contribution, your tools, and one important design decision.]
+
+### The result
+
+[Explain what works, how you evaluated it, and what you would improve next.]
+
+<!-- Add a real demo link or repository link here. -->
+</details>
+:::
+::::
+
+:::: {.project-card #project-three}
+::: {.project-art .art-experiment aria-hidden="true"}
+<span class="project-art-label">03 / EXPLORE</span>
+<div class="experiment-shape"></div>
+<span class="project-art-caption">FOLLOW THE QUESTION.</span>
+:::
+::: {.project-body}
+[Independent · Exploratory]{.eyebrow}
+
+## An idea worth following
+
+[Example project — replace with your work]{.sample-label}
+
+Make room for a personal experiment, creative project, course assignment, or work in progress. Not everything needs to be a polished case study.
+
+[Learning]{.tag} [Experimentation]{.tag}
+
+<details class="case-study">
+<summary>Explore the project outline <span aria-hidden="true">↗</span></summary>
+
+### The spark
+
+[What made you curious?]
+
+### The exploration
+
+[What did you try, make, or discover?]
+
+### What's next
+
+[What would you explore with more time?]
+</details>
+:::
+::::
+:::::
+
+::: {.closing-note}
+Want to hear more about the work? [Get in touch →](contact.qmd)
+:::

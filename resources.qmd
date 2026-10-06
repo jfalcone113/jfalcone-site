@@ -1,0 +1,183 @@
+---
+title: "Resources"
+description: "A personal library of study sheets, documents, and useful things to share."
+---
+
+::: {.page-intro}
+[04 / The open notebook]{.eyebrow}
+
+# Learn something.<br>[Pass it along.]{.accent}
+
+::: {.lead-copy}
+A small, growing shelf of study sheets, documents, and useful things. Some are polished; others are notes from the middle of figuring it out.
+:::
+:::
+
+<!-- The search is progressively enhanced: all entries remain readable without JS.
+To add an item, duplicate a resource-card div, give it a unique ID, and edit
+data-category. Search automatically includes all visible text in the card.
+For downloads, add files/topic.pdf and link to it inside the relevant card. -->
+<div class="resource-tools" id="resource-tools" hidden>
+  <div class="resource-search">
+    <label for="resource-search">Find something useful</label>
+    <input id="resource-search" type="search" placeholder="Search notes, topics, or formats…" aria-controls="resource-library">
+  </div>
+  <div class="resource-category">
+    <label for="resource-category">Show</label>
+    <select id="resource-category" aria-controls="resource-library">
+      <option value="all">Everything</option>
+      <option value="study">Study sheets</option>
+      <option value="documents">Documents</option>
+      <option value="collections">Collections</option>
+    </select>
+  </div>
+</div>
+<p class="resource-count" id="resource-count" role="status" aria-live="polite" aria-atomic="true" hidden></p>
+
+::::: {.resource-grid #resource-library}
+:::: {.resource-card #study-sheet data-category="study"}
+[01 / Study sheet]{.eyebrow}
+
+## The one-page study sheet
+
+A reusable structure for turning a big topic into a concise reference.
+
+[Study]{.tag} [Template]{.tag}
+
+<details>
+<summary>Open the study-sheet template</summary>
+
+### Topic & purpose
+
+Name the topic and the question this sheet should help answer.
+
+### Core ideas
+
+List three to five essential concepts. Define each in plain language.
+
+### Worked example
+
+Include one example from start to finish, with the reasoning between steps.
+
+### Watch out for
+
+Note common mistakes, assumptions, and exceptions.
+
+### Test yourself
+
+Write a few questions you can answer without looking at the sheet.
+
+</details>
+<!-- Replace the template with your notes, or add a real download:
+[Download study sheet ↓](files/study-sheet.pdf)
+-->
+::::
+
+:::: {.resource-card #reading-notes data-category="documents"}
+[02 / Document]{.eyebrow}
+
+## Reading notes that stick
+
+A simple way to capture what matters from a book, paper, or article.
+
+[Reading]{.tag} [Notes]{.tag}
+
+<details>
+<summary>Open the reading-note template</summary>
+
+### Source
+
+Record the title, author, publication date, and a source link.
+
+### The central idea
+
+Summarize the argument in your own words, in two or three sentences.
+
+### Evidence & questions
+
+What supports the argument? What assumptions or questions remain?
+
+### Connections
+
+How does this connect with something you already know?
+
+### Put it to use
+
+Name one practical application or next step.
+
+</details>
+::::
+
+:::: {.resource-card #learning-map data-category="collections"}
+[03 / Collection]{.eyebrow}
+
+## A map for learning something new
+
+A lightweight framework for organizing a topic before diving in.
+
+[Learning]{.tag} [Planning]{.tag}
+
+<details>
+<summary>Open the learning-map template</summary>
+
+### Start with a destination
+
+Define something specific you want to understand or be able to do.
+
+### Find the foundations
+
+List the prerequisites, key terms, and a small set of reliable starting sources.
+
+### Learn by making
+
+Choose a small exercise or project that puts the ideas into practice.
+
+### Keep a question list
+
+Collect points of confusion as you go. Revisit them after each session.
+
+### Share a useful artifact
+
+Create a short explanation, example, or reference sheet for someone following behind you.
+
+</details>
+::::
+:::::
+
+<p id="resource-empty" class="empty-state" hidden>No matches yet. Try another search or choose “Everything.”</p>
+
+::: {.shelf-note}
+**A note about this shelf**
+
+Learning is better when it's shared. These starter templates are here to be useful; as the collection grows, each entry can become a note, a download, or a link to something worth reading.
+:::
+
+```{=html}
+<script>
+(() => {
+  const search = document.getElementById('resource-search');
+  const category = document.getElementById('resource-category');
+  const cards = [...document.querySelectorAll('.resource-card')];
+  const count = document.getElementById('resource-count');
+  const empty = document.getElementById('resource-empty');
+  const update = () => {
+    const terms = search.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+    let visible = 0;
+    cards.forEach(card => {
+      const text = card.textContent.toLocaleLowerCase();
+      const matches = terms.every(term => text.includes(term)) &&
+        (category.value === 'all' || card.dataset.category === category.value);
+      card.hidden = !matches;
+      if (matches) visible++;
+    });
+    count.textContent = `${visible} of ${cards.length} resources`;
+    empty.hidden = visible !== 0;
+  };
+  document.getElementById('resource-tools').hidden = false;
+  count.hidden = false;
+  search.addEventListener('input', update);
+  category.addEventListener('change', update);
+  update();
+})();
+</script>
+```

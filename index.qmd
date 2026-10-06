@@ -1,0 +1,102 @@
+---
+title: "Home"
+pagetitle: "Your Name — Portfolio"
+description: "Hello, I'm Your Name. Explore my work, experience, and personal library."
+body-classes: home-page
+---
+
+<!-- CUSTOMIZE: Replace Your Name, the introduction, and the three focus areas. -->
+::::: {.hero}
+:::: {.hero-copy}
+[A little about me]{.eyebrow}
+
+# Hello, I'm<br> [Your Name.]{.accent}
+
+::: {.hero-intro}
+Curious by nature.<br>Thoughtful by design.
+:::
+
+::: {.lead-copy}
+I turn interesting questions into useful work. This is a home for the projects I build, the things I learn, and the ideas I want to share.
+:::
+
+::: {.actions}
+[Explore my work ↗](projects.qmd){.button .button-primary}
+[A bit about me →](resume.qmd){.button .button-secondary}
+:::
+::::
+
+:::: {.hero-art aria-hidden="true"}
+<div class="art-label">ALWAYS A WORK IN PROGRESS</div>
+<div class="orbit orbit-one"></div>
+<div class="orbit orbit-two"></div>
+<div class="orbit orbit-three"></div>
+<div class="art-center"><span>Make.</span><span>Learn.</span><span>Repeat.</span></div>
+<div class="art-dot"></div>
+<div class="art-foot"><span>IDEAS → ACTION</span><span>01 / ∞</span></div>
+::::
+:::::
+
+::: {.intro-strip}
+[THE THROUGHLINE]{.eyebrow}
+
+Good questions. Clear thinking. Work that matters.
+:::
+
+:::: {.section-heading}
+::: {}
+[01 / Explore]{.eyebrow}
+
+## A few places to start.
+:::
+
+A snapshot of what I do, where I've been, and what I'm learning.
+::::
+
+:::: {.card-grid .three-up}
+::: {.navigation-card}
+[01]{.card-number}
+
+### Selected work
+
+Projects, experiments, and past work—with the thinking behind the outcome.
+
+[View projects ↗](projects.qmd){.text-link}
+:::
+::: {.navigation-card}
+[02]{.card-number}
+
+### The longer story
+
+My experience, education, skills, and the path that connects them.
+
+[Read my resume ↗](resume.qmd){.text-link}
+:::
+::: {.navigation-card}
+[03]{.card-number}
+
+### Open notebook
+
+Study sheets, useful documents, and small things worth passing along.
+
+[Browse resources ↗](resources.qmd){.text-link}
+:::
+::::
+
+:::: {.about-band}
+::: {}
+[02 / My approach]{.eyebrow}
+
+## Equal parts curiosity<br>and follow-through.
+:::
+::: {}
+I like work that starts with a good question and ends with something useful. My approach is simple: understand the problem, make the thinking visible, and keep improving the result.
+
+<!-- CUSTOMIZE: Replace these with your actual interests or strengths. -->
+[Research & exploration]{.tag} [Building & iteration]{.tag} [Clear communication]{.tag}
+:::
+::::
+
+::: {.closing-note}
+Have something in mind? [Let's talk →](contact.qmd)
+:::
