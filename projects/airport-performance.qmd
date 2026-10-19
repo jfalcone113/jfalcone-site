@@ -1,0 +1,30 @@
+---
+title: "Airport Performance"
+description: "An interactive Tableau story exploring airport rankings, on-time performance, customer opinion, and amenities."
+image: "airport-performance.png"
+image-alt: "World map of airports colored by AirHelp Score"
+categories: [Tableau, Data Visualization, Analysis]
+---
+
+::: {.page-intro}
+[Selected work / Data visualization]{.eyebrow}
+
+# Airport [Performance]{.accent}
+
+::: {.lead-copy}
+An interactive Tableau story exploring how airport rankings relate to on-time performance, customer opinion, and food and shopping amenities.
+:::
+
+[Open on Tableau Public ↗](https://public.tableau.com/views/Falcone_Airport_Story/Story1){.btn .btn-primary target="_blank" rel="noopener"}
+:::
+
+```{=html}
+<iframe
+  src="https://public.tableau.com/views/Falcone_Airport_Story/Story1?:showVizHome=no&amp;:embed=true"
+  title="Interactive Tableau story about airport performance"
+  allowfullscreen
+  style="display: block; width: 100%; height: 85vh; min-height: 850px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); margin-bottom: 2rem;"
+></iframe>
+```
+
+[← All projects](../projects.qmd)

@@ -1,23 +1,16 @@
 ---
 title: "Projects"
 description: "Selected projects, experiments, and past work."
+listing:
+  id: project-gallery
+  contents: projects
+  type: grid
+  fields: [image, title, description, categories]
+  sort: "title"
+  grid-columns: 3
+  image-height: 200px
+  max-description-length: 180
 ---
-
-::: {.page-intro}
-[01 / Selected work]{.eyebrow}
-
-# Projects are<br>[coming soon.]{.accent}
-
-::: {.lead-copy}
-I’m currently organizing and documenting selected work across data science, machine learning, deep learning, optimization, and data engineering.
-:::
-:::
-
-::: {.closing-note}
-In the meantime, you can explore my [GitHub ↗](https://github.com/jfalcone113) or connect with me on [LinkedIn ↗](https://www.linkedin.com/in/falconejoseph/).
-:::
-
-<!--
 
 ::: {.page-intro}
 [01 / Selected work]{.eyebrow}
@@ -29,121 +22,49 @@ A collection of projects, experiments, and past work. The process matters as muc
 :::
 :::
 
-::::: {.project-stack}
-:::: {.project-card #project-one}
-::: {.project-art .art-analysis aria-hidden="true"}
-<span class="project-art-label">01 / INVESTIGATE</span>
-<div class="bar-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-<span class="project-art-caption">FIND THE SIGNAL.</span>
+<!--
+Add a .qmd file in projects/ (or projects/project-name/index.qmd).
+Include title and description in its YAML front matter; optionally add
+image, image-alt, and categories. Rebuild the website to refresh the gallery.
+Example front matter:
+---
+title: "Project title"
+description: "A short summary of the question, approach, and result."
+image: "thumbnail.png"
+image-alt: "A description of the project preview"
+categories: [Data Science, Machine Learning]
+---
+Image paths are relative to the project file. Images are optional.
+-->
+
+::: {#project-gallery}
 :::
-::: {.project-body}
-[Research · Analysis]{.eyebrow}
 
-## Making a complex question clear
-
-[Example project — replace with your work]{.sample-label}
-
-Use this space for a research or analysis project. Explain the question, who needed the answer, and why it mattered.
-
-[Research]{.tag} [Analysis]{.tag} [Communication]{.tag}
-
-<details class="case-study">
-<summary>Explore the project outline <span aria-hidden="true">↗</span></summary>
-
-### The question
-
-[What problem were you trying to solve? Who was it for?]
-
-### My contribution
-
-[Describe your role, collaborators, tools, and key decisions.]
-
-### The approach
-
-[Explain the evidence, methods, constraints, and tradeoffs.]
-
-### The outcome
-
-[Share the result and what you learned. Use a metric only if you can support it.]
-
-</details>
+::: {#projects-empty .empty-state}
+Projects are coming soon. Check back for selected work and experiments.
 :::
-::::
-
-:::: {.project-card #project-two}
-::: {.project-art .art-build aria-hidden="true"}
-<span class="project-art-label">02 / BUILD</span>
-<div class="mock-window"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-layout"><b></b><b></b><b></b></div></div>
-<span class="project-art-caption">TURN IDEAS INTO TOOLS.</span>
-:::
-::: {.project-body}
-[Design · Development]{.eyebrow}
-
-## A small tool with a real purpose
-
-[Example project — replace with your work]{.sample-label}
-
-Introduce an app, dashboard, website, or other thing you built. Focus on the person using it and the problem it helps them solve.
-
-[Prototyping]{.tag} [Development]{.tag} [Iteration]{.tag}
-
-<details class="case-study">
-<summary>Explore the project outline <span aria-hidden="true">↗</span></summary>
-
-### The need
-
-[What was difficult before this existed?]
-
-### The build
-
-[Describe your contribution, your tools, and one important design decision.]
-
-### The result
-
-[Explain what works, how you evaluated it, and what you would improve next.]
-
-</details>
-:::
-::::
-
-:::: {.project-card #project-three}
-::: {.project-art .art-experiment aria-hidden="true"}
-<span class="project-art-label">03 / EXPLORE</span>
-<div class="experiment-shape"></div>
-<span class="project-art-caption">FOLLOW THE QUESTION.</span>
-:::
-::: {.project-body}
-[Independent · Exploratory]{.eyebrow}
-
-## An idea worth following
-
-[Example project — replace with your work]{.sample-label}
-
-Make room for a personal experiment, creative project, course assignment, or work in progress. Not everything needs to be a polished case study.
-
-[Learning]{.tag} [Experimentation]{.tag}
-
-<details class="case-study">
-<summary>Explore the project outline <span aria-hidden="true">↗</span></summary>
-
-### The spark
-
-[What made you curious?]
-
-### The exploration
-
-[What did you try, make, or discover?]
-
-### What's next
-
-[What would you explore with more time?]
-</details>
-:::
-::::
-:::::
 
 ::: {.closing-note}
-Want to hear more about the work? [Get in touch →](contact.qmd)
+Explore my [GitHub ↗](https://github.com/jfalcone113) or connect with me on [LinkedIn ↗](https://www.linkedin.com/in/falconejoseph/).
 :::
 
--->
+```{=html}
+<style>
+#listing-project-gallery:has(.quarto-grid-item) ~ #projects-empty { display: none; }
+#listing-project-gallery .quarto-grid-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+#listing-project-gallery .card-body { padding: 26px; }
+#listing-project-gallery .listing-title { font-size: 1.5rem; }
+#listing-project-gallery .listing-description { color: var(--muted); font-size: .9rem; }
+#listing-project-gallery .listing-category {
+  color: var(--muted);
+  border-color: var(--line);
+  font-family: var(--font-mono);
+}
+#listing-project-gallery .card-img-top { object-fit: cover; }
+</style>
+```

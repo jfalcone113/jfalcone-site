@@ -1,0 +1,29 @@
+---
+title: "CD Rate Forecasting"
+description: "Explore CD rates and compare time-series forecasting models in an interactive dashboard."
+image: "cd-forecasting.png"
+image-alt: "Dashboard showing historical CD rates for 12-, 24-, and 48-month terms"
+categories: [R, Shiny, Forecasting]
+---
+
+::: {.page-intro}
+[Selected work / Forecasting]{.eyebrow}
+
+# CD Rate [Forecasting]{.accent}
+
+::: {.lead-copy}
+An interactive dashboard for exploring historical 12-, 24-, and 48-month CD rates and comparing mean, naïve, ARIMA, regression, and ensemble forecasts.
+:::
+
+[Open app in a new window ↗](https://019fe020-6ebb-5eec-d809-5aea9a5b22ca.share.connect.posit.cloud/){.btn .btn-primary target="_blank" rel="noopener"}
+:::
+
+```{=html}
+<iframe
+  src="https://019fe020-6ebb-5eec-d809-5aea9a5b22ca.share.connect.posit.cloud/"
+  title="Interactive CD Rate Forecasting dashboard"
+  style="display: block; width: 100%; height: 85vh; min-height: 650px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); margin-bottom: 2rem;"
+></iframe>
+```
+
+[← All projects](../projects.qmd)

@@ -1,0 +1,477 @@
+---
+title: "Charlotte Capital Connection 2026"
+description: "An event registration and engagement report examining alumni affiliations, academic programs, employer representation, and event selection."
+image: "haslam.png"
+image-alt: "University of Tennessee Haslam College of Business logo"
+categories: [R, Data Visualization, Event Analytics]
+---
+
+::: {.page-intro}
+[Selected work / Registration analytics]{.eyebrow}
+
+# Charlotte Capital<br>[Connection 2026]{.accent}
+
+::: {.lead-copy}
+A registration and engagement report examining university affiliations, academic program representation, employer participation, and event selection. The analysis reflects registrations and intended participation, rather than verified attendance.
+:::
+
+[Open report ↗](report.pdf){.btn .btn-primary target="_blank" rel="noopener"}
+[Download PDF](report.pdf){.btn download="charlotte-registration-engagement.pdf"}
+:::
+
+## Report
+
+```{=html}
+<iframe
+  src="report.pdf#view=FitH"
+  title="Charlotte Capital Connection 2026 Registration and Engagement PDF report"
+  style="display: block; width: 100%; height: 85vh; min-height: 650px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); margin-bottom: 1rem;"
+></iframe>
+```
+
+If the PDF does not appear in your browser, [open the report in a new window](report.pdf){target="_blank" rel="noopener"}.
+
+## Analysis code
+
+[Download R script](analysis.R){.btn download="charlotte-engagement-analysis.R"}
+
+The script requires `tidyverse`, `knitr`, `scales`, and `uuid`. Place `guest_registration.csv`, `faculty_staff_registration.csv`, and `employer_registration_counts.csv` in a `data` folder beneath your R working directory. The registration datasets are not included here.
+
+<details>
+<summary>View R code</summary>
+
+```r
+# Charlotte Capital Connection 2026 — Registration & Engagement Report
+# Joseph Falcone
+# Place the three cleaned registration CSVs in a data/ folder
+# beneath your R working directory. Datasets are not included.
+
+library(tidyverse)
+
+guests <- read_csv('data/guest_registration.csv')
+faculty <- read_csv('data/faculty_staff_registration.csv')
+employer <- read_csv('data/employer_registration_counts.csv')
+
+# Events
+event_colors <- c(
+    'Both' = '#FF8200',
+    'Networking Reception' = '#489FDF',
+    'Fireside Chat' = '#236A9A'
+)
+
+# UT Affiliation
+affiliation_colors <- c(
+    'alumni' = '#FF8200',
+    'alumni_employer_partner' = '#E65C00',
+    'current_student' = '#E8A86D',
+    'employer_partner' = '#4D4D4D',
+    'alumni_current_student' = '#994500'
+)
+
+# Graduation Decade
+decade_colors <- c(
+    '1980s' = '#663300',
+    '1990s' = '#994500',
+    '2000s' = '#C96500',
+    '2010s' = '#FF8200',
+    '2020s' = '#FFB366'
+)
+
+# Academic Programs
+program_colors <- c(
+    '#FF8200',  # Tennessee Orange
+    '#489FDF',  # Summitt Blue
+    '#4D4D4D',  # Smokey Gray
+    '#E65C00',  # Vibrant Orange
+    '#236A9A',  # Dark Blue
+    '#A7A9AC',  # Light Gray
+    '#FFB366',  # Light Orange
+    '#6C5B7B',  # Muted Purple
+    '#00857D',  # Teal
+    '#B35C8D',  # Muted Magenta
+    '#6B8E23',  # Olive Green
+    '#D4A017',  # Golden Yellow
+    '#395C6B',  # Slate Blue
+    '#9B6A45'   # Warm Brown
+)
+
+# Haslam Undergraduate
+undergrad_colors <- c(
+    'TRUE' = '#FF8200',
+    'FALSE' = '#4D4D4D'
+)
+
+# Alumni Status
+alumni_colors <- c(
+    'Alumni' = '#FF8200',
+    'Non-Alumni' = '#4D4D4D'
+)
+
+# Event Registration Type
+selection_colors <- c(
+    'Both Events' = '#FF8200',
+    'One Event' = '#4D4D4D'
+)
+
+# bar chart
+guests |>
+    ggplot(aes(
+        x = fct_infreq(ut_affiliation),
+        fill = fct_infreq(ut_affiliation)
+    )) +
+    geom_bar() +
+    geom_text(
+        stat = 'count',
+        aes(label = after_stat(count)),
+        vjust = -0.3
+    ) + 
+    scale_fill_manual(
+        values = affiliation_colors
+    ) +
+    scale_y_continuous(
+        expand = expansion(mult = c(0, 0.1))
+    ) +
+    labs(
+        title = 'Registrant Count by Affiliation',
+        x = 'UT Affiliation',
+        y = 'Count'
+    ) +
+    theme_minimal()
+
+guests |>
+    filter(!is.na(grad_year)) |>
+    mutate(decade = paste0(floor(grad_year / 10) * 10, 's')) |>
+    count(decade) |>
+    mutate(proportion = n / sum(n)) |>
+    ggplot(aes(x = decade, y = proportion, fill = decade)) +
+    geom_col() +
+    geom_text(
+        aes(label = scales::percent(proportion, accuracy = 0.1)),
+        vjust = -0.3
+    ) +
+    scale_fill_manual(values = decade_colors) +
+    scale_y_continuous(
+        labels = scales::label_percent(),
+        expand = expansion(mult = c(0, 0.1))
+    ) +
+    labs(
+        title = 'Registrant Proportion by Graduation Decade',
+        x = 'Graduation Decade',
+        y = 'Proportion'
+    ) +
+    theme_minimal() +
+    theme(legend.position = 'none')
+
+guests |>
+    filter(!is.na(grad_year)) |>
+    mutate(decade = paste0(floor(as.numeric(grad_year) / 10) * 10, 's')) |>
+    count(decade) |>
+    knitr::kable(
+        col.names = c('Graduation Decade', 'Registrants'),
+        caption = 'Registrants by Graduation Decade'
+    )
+
+# bar chart
+guests |>
+    filter(!is.na(programs)) |>
+    ggplot(aes(
+        x = fct_infreq(programs),
+        fill = fct_infreq(programs)
+    )) +
+    geom_bar() +
+    geom_text(
+        stat = 'count',
+        aes(label = after_stat(count)),
+        hjust = -0.3
+    ) +
+    scale_fill_manual(
+        values = program_colors
+    ) +
+    scale_y_continuous(
+        expand = expansion(mult = c(0, 0.15))
+    ) +
+    coord_flip() +
+    labs(
+        title = 'Registrant Count by Program',
+        x = 'Program',
+        y = 'Count'
+    ) +
+    theme_minimal() +
+    theme(legend.position = 'none')
+
+guests |>
+    filter(!is.na(haslam_undergrad)) |>
+    ggplot(aes(
+        x = '',
+        fill = as.factor(haslam_undergrad)
+    )) +
+    geom_bar(width = 1) +
+    geom_text(
+        stat = 'count',
+        aes(
+            label = scales::percent(after_stat(count / sum(count)), accuracy = 0.1)
+        ),
+        position = position_stack(vjust = 0.5),
+        color = 'white'
+    ) +
+    coord_polar(theta = 'y') +
+    scale_fill_manual(
+        values = undergrad_colors
+    ) +
+    labs(
+        title = 'Haslam Undergraduate Affiliation',
+        fill = 'Haslam Undergraduate'
+    ) +
+    theme_void()
+
+guests |>
+    filter(!is.na(events)) |>
+    mutate(
+        fireside_chat = events %in% c('Fireside Chat', 'Both'),
+        networking_reception = events %in% c('Networking Reception', 'Both')
+    ) |>
+    pivot_longer(
+        cols = c(fireside_chat, networking_reception),
+        names_to = 'event',
+        values_to = 'registered'
+    ) |>
+    filter(registered) |>
+    mutate(
+        selection = if_else(events == 'Both', 'Both Events', 'One Event')
+    ) |>
+    count(event, selection) |>
+    ggplot(aes(x = event, y = n, fill = selection)) +
+    geom_col() +
+    geom_text(
+        aes(label = n),
+        position = position_stack(vjust = 0.5),
+        color = 'white'
+    ) +
+    geom_text(
+        aes(
+            x = event,
+            y = n,
+            group = event,
+            label = after_stat(y)
+        ),
+        stat = 'summary',
+        fun = sum,
+        inherit.aes = FALSE,
+        vjust = -0.5
+    ) +
+    scale_fill_manual(
+        values = selection_colors
+    ) +
+    scale_y_continuous(
+        expand = expansion(mult = c(0, 0.15))
+    ) +
+    labs(
+        title = 'Event Registrations by Selection Type',
+        x = 'Event',
+        y = 'Registrations',
+        fill = 'Registration Type',
+        caption = 'Note: Registrants selecting both events are counted in each event total.'
+    ) +
+    theme_minimal()
+
+guests |>
+    filter(!is.na(events), !is.na(grad_year)) |>
+    mutate(
+        decade = paste0(floor(as.numeric(grad_year) / 10) * 10, 's')
+    ) |>
+    ggplot(aes(
+        x = decade,
+        fill = events
+    )) +
+    geom_bar() +
+    geom_text(
+        stat = 'count',
+        aes(label = after_stat(count)),
+        position = position_stack(vjust = 0.5),
+        color = 'white'
+    ) +
+    scale_fill_manual(
+        values = event_colors
+    ) +
+    scale_y_continuous(
+        expand = expansion(mult = c(0, 0.1))
+    ) +
+    labs(
+        title = 'Event Selection by Graduation Decade',
+        x = 'Graduation Decade',
+        y = 'Registrants',
+        fill = 'Event Selection'
+    ) +
+    theme_minimal()
+
+guests |>
+    filter(!is.na(employer), employer != '') |>
+    add_count(employer, name = 'total') |>
+    filter(total > 1) |>
+    mutate(
+        alumni_status = if_else(
+            ut_affiliation %in% c(
+                'alumni',
+                'alumni_current_student',
+                'alumni_employer_partner'
+            ),
+            'Alumni',
+            'Non-Alumni'
+        )
+    ) |>
+    count(employer, alumni_status, total) |>
+    ggplot(aes(
+        x = fct_reorder(employer, total),
+        y = n,
+        fill = alumni_status
+    )) +
+    geom_col() +
+    geom_text(
+        aes(label = n),
+        position = position_stack(vjust = 0.5),
+        color = 'white'
+    ) +
+    scale_fill_manual(
+        values = alumni_colors
+    ) +
+    coord_flip() +
+    labs(
+        title = 'Employer Representation by Alumni Status',
+        x = 'Employer',
+        y = 'Registrants',
+        fill = 'Alumni Status'
+    ) +
+    theme_minimal()
+
+employer |>
+    mutate(total = both + fireside_chat_only + networking_only) |>
+    filter(total > 1) |>
+    pivot_longer(
+        cols = c(both, fireside_chat_only, networking_only),
+        names_to = 'event',
+        values_to = 'n'
+    ) |>
+    ggplot(aes(
+        x = fct_reorder(employer, total),
+        y = n,
+        fill = event
+    )) +
+    geom_col() +
+    geom_text(
+        aes(label = if_else(n > 0, as.character(n), '')),
+        position = position_stack(vjust = 0.5),
+        color = 'white',
+        size = 4
+    ) +
+    scale_fill_manual(
+        values = c(
+            'both' = event_colors[['Both']],
+            'fireside_chat_only' = event_colors[['Fireside Chat']],
+            'networking_only' = event_colors[['Networking Reception']]
+        ),
+        labels = c(
+            'Both Events',
+            'Fireside Chat Only',
+            'Networking Reception Only'
+        )
+    ) +
+    coord_flip() +
+    labs(
+        title = 'Event Selection by Employer',
+        x = 'Employer',
+        y = 'Registrants',
+        fill = 'Event Selection'
+    ) +
+    theme_minimal()
+
+employer |>
+  distinct(industry, employer) |>
+  arrange(industry, employer) |>
+  group_split(industry) |>
+  purrr::walk(function(df) {
+    cat("\n\n### ", df$industry[1], " {.unnumbered}\n\n", sep = "")
+    cat(paste0("- ", df$employer, collapse = "\n"))
+    cat("\n\n")
+  })
+
+employer |>
+  group_by(industry) |>
+  summarise(
+    employers = n_distinct(employer),
+    registrants = sum(both + fireside_chat_only + networking_only),
+    .groups = "drop"
+  ) |>
+  mutate(
+    percentage = scales::percent(
+      registrants / sum(registrants),
+      accuracy = 0.1
+    )
+  ) |>
+  arrange(desc(registrants)) |>
+  knitr::kable(
+    col.names = c(
+      "Industry",
+      "Employers",
+      "Registrants",
+      "% of Registrants"
+    ),
+    caption = "Industry Representation Summary",
+    booktabs = TRUE
+  )
+
+employer |>
+  group_by(industry) |>
+  summarise(
+    registrants = sum(both + fireside_chat_only + networking_only),
+    .groups = "drop"
+  ) |>
+  ggplot(aes(
+    x = "Registrants",
+    y = fct_reorder(industry, registrants),
+    fill = registrants
+  )) +
+  geom_tile(
+    width = 0.95,
+    height = 0.95,
+    color = "white"
+  ) +
+  geom_text(
+    aes(label = registrants),
+    size = 4
+  ) +
+  scale_fill_gradient(
+    low = "#FFF3E6",
+    high = "#FF8200"
+  ) +
+  labs(
+    title = "Registrants by Industry",
+    x = NULL,
+    y = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    legend.position = "none"
+  )
+
+faculty |>
+    select(first_name, last_name, job_title, events) |>
+    mutate(
+        name = paste(first_name, last_name)
+    ) |>
+    select(name, job_title, events) |>
+    knitr::kable(
+        col.names = c('Name', 'Position', 'Event Selection'),
+        caption = 'Faculty & Staff Registrants'
+    )
+
+library(uuid)
+
+render_id <- substr(gsub("-", "", UUIDgenerate()), 1, 8)
+```
+
+</details>
+
+[← All projects](../../projects.qmd)

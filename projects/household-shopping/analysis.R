@@ -1,0 +1,124 @@
+# Household Shopping Behavior — Joseph Falcone
+# Place transaction_data.csv and hh_demographic.csv in a data/ folder
+# beneath your working directory before running this script.
+
+# Setup
+library(tidyverse)
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE
+)
+
+transactions <- read.csv('data/transaction_data.csv')
+demographics <- read.csv('data/hh_demographic.csv')
+
+# Total household spending
+household_spending <- transactions |>
+    group_by(household_key) |>
+    summarise(
+        total_spend = sum(SALES_VALUE, na.rm = TRUE),
+        .groups = 'drop'
+    )
+
+t.test(household_spending$total_spend, conf.level = 0.95)
+
+# Changes in spending per trip
+basket_spending <- transactions |>
+    filter(WEEK_NO >= 1, WEEK_NO <= 102) |>
+    mutate(
+        period = if_else(WEEK_NO <= 52, 'first', 'second')
+    ) |>
+        group_by(household_key, BASKET_ID, period) |>
+        summarise(trip_spend = sum(SALES_VALUE, na.rm = TRUE),
+        .groups = 'drop'
+        )
+
+household_period <- basket_spending |>
+    group_by(household_key, period) |>
+    summarise(
+        mean_trip_spend = mean(trip_spend),
+        .groups = 'drop'
+    )
+
+paired_households <- household_period |>
+    pivot_wider(
+        names_from = period,
+        values_from = mean_trip_spend
+    ) |>
+        drop_na(first, second)
+
+paired_households <- paired_households |>
+    mutate(
+        difference = second - first
+    )
+
+paired_households |>
+    summarise(
+        mean_first = mean(first),
+        mean_second = mean(second),
+        mean_difference = mean(difference)
+    )
+
+t.test(
+    paired_households$second,
+    paired_households$first,
+    paired = TRUE,
+    conf.level = 0.95
+)
+
+# Spending by income group
+income_spending <- household_spending |>
+    inner_join(demographics, by = 'household_key')
+
+income_spending |>
+    count(INCOME_DESC, sort = TRUE)
+
+two_income_groups <- income_spending |>
+    filter(INCOME_DESC %in% c('50-74K', '100-124K')) |>
+    mutate(
+        INCOME_DESC = factor(
+            INCOME_DESC,
+            levels = c('100-124K', '50-74K')
+        )
+    )
+
+two_income_groups |>
+    group_by(INCOME_DESC) |>
+    summarise(
+        n = n(),
+        mean_spend = mean(total_spend),
+        sd_spend = sd(total_spend),
+        .groups = "drop"
+    )
+
+t.test(
+    total_spend ~ INCOME_DESC,
+    data = two_income_groups,
+    conf.level = 0.95
+)
+
+# Demographic coverage
+household_demo_status <- household_spending |>
+    mutate(
+        demo_available = if_else(
+            household_key %in% demographics$household_key,
+            'record found',
+            'no record found'
+        )
+    )
+
+household_demo_status |>
+    group_by(demo_available) |>
+    summarise(
+        n = n(),
+        mean_spend = mean(total_spend),
+        sd_spend = sd(total_spend),
+        .groups = 'drop'
+    )
+
+t.test(
+    total_spend ~ demo_available,
+    data = household_demo_status,
+    conf.level = 0.95
+)

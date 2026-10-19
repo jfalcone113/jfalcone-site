@@ -1,0 +1,656 @@
+---
+title: "Private-Label Purchasing at Kroger"
+description: "A team project examining household income and private-label spending, with comparisons across Grocery categories."
+image: "kroger.png"
+image-alt: "Kroger logo with the slogan Fresh for Everyone"
+categories: [R, Statistical Inference, Retail Analytics]
+---
+
+::: {.page-intro}
+[Selected work / Team project]{.eyebrow}
+
+# Private-Label Purchasing<br>at [Kroger]{.accent}
+
+::: {.lead-copy}
+An analysis of household income and private-label spending, examining overall purchasing patterns and differences within Grocery categories.
+:::
+
+[Download R script](analysis.R){.btn download="kroger-private-label-analysis.R"}
+:::
+
+## Business Question
+
+Do lower-income Kroger households allocate a larger share of their spending to private-label products than higher-income households, and is that difference concentrated in Grocery categories?
+
+## Unit of Analysis
+
+Our unit of analysis is the **household**.
+
+We use households because income is measured at the household level. Each household therefore contributes one summarized private-label purchasing measure rather than households with more transactions receiving more weight.
+
+## Defining Private-Label Purchasing
+
+We define private-label purchasing as **private-label dollar share**:
+
+$$
+\text{Private Label Share}
+=
+\frac{\text{Private Label Spending}}
+{\text{Total Spending}}
+$$
+
+This measures the share of a household's spending that goes to private-label products.
+
+## Basics
+
+Read in tidyverse and data
+<details>
+<summary>View R code</summary>
+
+```r
+library(tidyverse)
+
+transactions <- read_csv("transaction_data.csv")
+products <- read_csv("product.csv")
+demographics <- read_csv("hh_demographic.csv")
+```
+
+</details>
+
+
+Join data
+<details>
+<summary>View R code</summary>
+
+```r
+data <- transactions |>
+    left_join(products, by = 'PRODUCT_ID') |>
+    left_join(demographics, by = 'household_key')
+
+glimpse(data)
+```
+
+</details>
+
+Initial EDA
+<details>
+<summary>View R code</summary>
+
+```r
+## Count of private and national transactions
+data |>
+    count(BRAND)
+
+## Count of transactions per department
+data |>
+    count(DEPARTMENT, sort = TRUE)
+
+## Count of each income groups
+data |>
+    count(INCOME_DESC, sort = TRUE)
+
+## Count of transactions with demographic info
+data |>
+    summarise(
+        total_rows = n(),
+        rows_with_income = sum(!is.na(INCOME_DESC)),
+        percent_with_income = mean(!is.na(INCOME_DESC)) * 100
+    )
+```
+
+</details>
+
+Create new variable to track only private label product sales
+<details>
+<summary>View R code</summary>
+
+```r
+data <- data |>
+    mutate(
+        private_sales = if_else(
+            BRAND == 'Private',
+            SALES_VALUE, 0
+            )
+    )
+```
+
+</details>
+
+## Analysis
+
+Rearrange data to household granularity
+<details>
+<summary>View R code</summary>
+
+```r
+household_data <- data |>
+    filter(!is.na(INCOME_DESC)) |>
+    group_by(household_key, INCOME_DESC) |>
+    summarise(
+        total_sales = sum(SALES_VALUE, na.rm = TRUE),
+        private_sales = sum(private_sales, na.rm = TRUE),
+        .groups = 'drop'
+    ) |>
+        mutate(
+            private_share = private_sales / total_sales
+        )
+
+glimpse(household_data)
+summary(household_data$private_share)
+```
+
+</details>
+
+Private label purchases by income groups
+<details>
+<summary>View R code</summary>
+
+```r
+household_data |>
+    group_by(INCOME_DESC) |>
+    summarise(
+        n = n(),
+        mean_private_share = mean(private_share, na.rm = TRUE),
+        median_private_share = median(private_share, na.rm = TRUE),
+        sd_private_share = sd(private_share, na.rm = TRUE)
+    ) |>
+        arrange(desc(mean_private_share))
+```
+
+</details>
+
+
+Distribution of private label dollar share
+<details>
+<summary>View R code</summary>
+
+```r
+ggplot(household_data, aes(x = private_share)) +
+    geom_histogram(bins = 30) +
+    labs(
+        title = 'Distribution of Household Private Label Dollar Share',
+        x = 'Private Label Dollar Share',
+        y = 'Number of Households'
+    )
+```
+
+</details>
+
+Private-label dollar share by income group
+<details>
+<summary>View R code</summary>
+
+```r
+ggplot(household_data, aes(x = INCOME_DESC, y = private_share)) +
+    geom_boxplot() +
+    coord_flip() +
+    labs(
+        title = 'Private Label Dollar Share by Household Income',
+        x = 'Income Group',
+        y = 'Private Label Dollar Share '
+    )
+```
+
+</details>
+
+Income group summary
+<details>
+<summary>View R code</summary>
+
+```r
+income_summary <- household_data |>
+    group_by(INCOME_DESC) |>
+    summarise(
+        n = n(),
+        mean_private_share = mean(private_share, na.rm = TRUE),
+        median_private_share = median(private_share, na.rm = TRUE),
+        sd_private_share = sd(private_share, na.rm = TRUE)
+    ) |>
+        arrange(desc(mean_private_share))
+
+income_summary
+```
+
+</details>
+
+Now you have an actual finding to work with — and it’s more interesting than a simple “lower income buys more private label” story.
+
+Your descriptive results show:
+
+Overall mean private label dollar share: 27.7%
+Median: 26.9%
+100–124K is highest observed group at 30.2%
+Several lower income groups are around 28–29%
+
+The highest-income groups are much lower:
+
+- 150–174K: 22.7%
+- 175–199K: 22.0%
+- 250K+: 16.6%
+- 200–249K: 16.3%
+
+Last few groups have very small sample sizes, (especially 200–249K with only 5 households). Collapse in broader groups.
+
+Establish broader groups
+<details>
+<summary>View R code</summary>
+
+```r
+household_data <- household_data |>
+    mutate(
+        income_group = case_when(
+            INCOME_DESC %in% c(
+                "Under 15K",
+                "15-24K",
+                "25-34K",
+                "35-49K"
+            ) ~ "Below $50K",
+
+            INCOME_DESC %in% c(
+                "50-74K",
+                "75-99K"
+            ) ~ "$50K-$99K",
+
+            INCOME_DESC %in% c(
+                "100-124K",
+                "125-149K",
+                "150-174K",
+                "175-199K",
+                "200-249K",
+                "250K+"
+            ) ~ "$100K+"
+        )
+    )
+```
+
+</details>
+
+Summarize new groups
+<details>
+<summary>View R code</summary>
+
+```r
+income_group_summary <- household_data |>
+    group_by(income_group) |>
+    summarise(
+        n = n(),
+        mean_private_share = mean(private_share),
+        median_private_share = median(private_share),
+        sd_private_share = sd(private_share)
+    )
+
+income_group_summary
+```
+
+</details>
+
+New plot
+<details>
+<summary>View R code</summary>
+
+```r
+ggplot(
+    household_data,
+    aes(x = income_group, y = private_share)
+) +
+    geom_boxplot() +
+    labs(
+        title = "Private-Label Dollar Share by Household Income",
+        x = "Household Income",
+        y = "Private-Label Dollar Share"
+    )
+```
+
+</details>
+
+## ANOVA
+
+Welch's one way ANOVA best because of unequal sizes and different standard deviations
+<details>
+<summary>View R code</summary>
+
+```r
+oneway.test(
+    private_share ~ income_group,
+    data = household_data,
+    var.equal = FALSE
+)
+```
+
+</details>
+
+Welch ANOVA Result:
+
+- F = 5.7469
+- p = 0.003509
+
+
+Average private-label dollar share is not the same across all three income groups.
+
+Your grouped means are:
+
+- Below $50K: 28.9%
+- $50K–$99K: 27.2%
+-  $100K+: 25.0%
+
+So broad pattern is: **Private-label dollar share decreases as household income rises.**
+
+ANOVA only tells shows at least one group differs, not which pairs differ.
+
+Next step is a pairwise follow-up with Welch pairwise t-tests with a multiple-comparison adjustment
+<details>
+<summary>View R code</summary>
+
+```r
+pairwise.t.test(
+    household_data$private_share,
+    household_data$income_group,
+    p.adjust.method = "bonferroni",
+    pool.sd = FALSE
+)
+```
+
+</details>
+
+Bonferroni-adjusted pairwise p-values:
+
+- $50K–$99K vs $100K+: p = 0.256
+- Below $50K vs $100K+: p = 0.004
+- Below $50K vs $50K–$99K: p = 0.173
+
+Only statistically significant pair **Below $50K vs $100K+**
+
+And the observed mean difference is 0.039 (0.289 - 0.250)
+
+Households below $50K spend about 3.9 percentage points more of their total spending on private-label products than households earning $100K+. The middle-income group is not significantly different from either side after the Bonferroni adjustment.
+
+**Private-label dollar share differs across income groups overall, but the clearest difference is between households below $50K and households earning $100K or more.**
+
+Quantify key difference with confidence interval
+<details>
+<summary>View R code</summary>
+
+```r
+t.test(
+    private_share ~ income_group,
+    data = household_data |>
+        filter(income_group %in% c("Below $50K", "$100K+"))
+)
+```
+
+</details>
+
+- $100K+ mean PL share: 25.05%
+- Below $50K mean PL share: 28.88%
+- Difference: about 3.83 percentage points
+- 95% CI for $100K+ − Below $50K: -6.15 to -1.51 percentage points
+- p = 0.00133
+
+Households earning below $50K spend about 3.8 percentage points more of their total dollars on private label products than households earning $100K or more. The 95% confidence interval suggests the true gap is roughly 1.5 to 6.2 percentage points.
+
+Is income gap concentrated within certain departments
+<details>
+<summary>View R code</summary>
+
+```r
+department_data <- data |>
+    filter(!is.na(INCOME_DESC)) |>
+    mutate(
+        income_group = case_when(
+            INCOME_DESC %in% c(
+                "Under 15K",
+                "15-24K",
+                "25-34K",
+                "35-49K"
+            ) ~ "Below $50K",
+
+            INCOME_DESC %in% c(
+                "50-74K",
+                "75-99K"
+            ) ~ "$50K-$99K",
+
+            INCOME_DESC %in% c(
+                "100-124K",
+                "125-149K",
+                "150-174K",
+                "175-199K",
+                "200-249K",
+                "250K+"
+            ) ~ "$100K+"
+        )
+    ) |>
+    filter(income_group %in% c("Below $50K", "$100K+")) |>
+    group_by(household_key, income_group, DEPARTMENT) |>
+    summarise(
+        total_sales = sum(SALES_VALUE, na.rm = TRUE),
+        private_sales = sum(private_sales, na.rm = TRUE),
+        .groups = "drop"
+    ) |>
+    mutate(
+        private_share = private_sales / total_sales
+    )
+```
+
+</details>
+
+Summarize by department
+<details>
+<summary>View R code</summary>
+
+```r
+department_summary <- department_data |>
+    group_by(DEPARTMENT, income_group) |>
+    summarise(
+        n = n(),
+        mean_private_share = mean(private_share, na.rm = TRUE),
+        .groups = "drop"
+    )
+
+department_summary
+```
+
+</details>
+
+Not a good idea to use all 44 departments. Some departments have tiny samples and mechanically extreme shares, like AUTOMOTIVE = 1.00 with only 7–11 households. Those aren’t very useful for the business story.
+
+GROCERY is by far the largest department in the transaction data, and gives a good “where”
+
+Check grocery
+<details>
+<summary>View R code</summary>
+
+```r
+department_summary |>
+    filter(DEPARTMENT == "GROCERY")
+```
+
+</details>
+
+Compare Below 50k and 100k+ Does the overall income difference in private-label purchasing persist specifically within Grocery?
+<details>
+<summary>View R code</summary>
+
+```r
+t.test(
+    private_share ~ income_group,
+    data = department_data |>
+        filter(DEPARTMENT == "GROCERY")
+)
+```
+
+</details>
+
+Find biggest commodity categories within grocery
+<details>
+<summary>View R code</summary>
+
+```r
+top_grocery_commodities <- data |>
+    filter(
+        DEPARTMENT == "GROCERY",
+        !is.na(COMMODITY_DESC)
+    ) |>
+    group_by(COMMODITY_DESC) |>
+    summarise(
+        total_sales = sum(SALES_VALUE, na.rm = TRUE),
+        .groups = "drop"
+    ) |>
+    arrange(desc(total_sales))
+
+top_grocery_commodities
+```
+
+</details>
+
+Among households with reported income, lower income households devoted about 7 percentage points more of their Grocery spending to private label products than households earning $100K+, with the estimated gap plausibly around 4.7–9.4 percentage points.
+
+Figure out which Grocery categories are driving that difference
+<details>
+<summary>View R code</summary>
+
+```r
+top_categories <- c(
+    "SOFT DRINKS",
+    "FLUID MILK PRODUCTS",
+    "CHEESE",
+    "FRZN MEAT/MEAT DINNERS",
+    "BAG SNACKS"
+)
+```
+
+</details>
+
+Household summary per category
+<details>
+<summary>View R code</summary>
+
+```r
+commodity_data <- data |>
+    filter(
+        DEPARTMENT == "GROCERY",
+        COMMODITY_DESC %in% top_categories,
+        !is.na(INCOME_DESC)
+    ) |>
+    mutate(
+        income_group = case_when(
+            INCOME_DESC %in% c(
+                "Under 15K",
+                "15-24K",
+                "25-34K",
+                "35-49K"
+            ) ~ "Below $50K",
+
+            INCOME_DESC %in% c(
+                "100-124K",
+                "125-149K",
+                "150-174K",
+                "175-199K",
+                "200-249K",
+                "250K+"
+            ) ~ "$100K+"
+        )
+    ) |>
+    filter(!is.na(income_group)) |>
+    group_by(
+        household_key,
+        income_group,
+        COMMODITY_DESC
+    ) |>
+    summarise(
+        total_sales = sum(SALES_VALUE, na.rm = TRUE),
+        private_sales = sum(private_sales, na.rm = TRUE),
+        .groups = "drop"
+    ) |>
+    mutate(
+        private_share = private_sales / total_sales
+    )
+```
+
+</details>
+
+Average private-label dollar share within that category among households that purchased something in that category.
+<details>
+<summary>View R code</summary>
+
+```r
+commodity_summary <- commodity_data |>
+    group_by(COMMODITY_DESC, income_group) |>
+    summarise(
+        n = n(),
+        mean_private_share = mean(private_share),
+        median_private_share = median(private_share),
+        .groups = "drop"
+    )
+
+commodity_summary
+```
+
+</details>
+
+Test whether those category gaps are statistically distinguishable.
+<details>
+<summary>View R code</summary>
+
+```r
+commodity_tests <- commodity_data |>
+    group_by(COMMODITY_DESC) |>
+    group_modify(~ {
+        test <- t.test(
+            private_share ~ income_group,
+            data = .x
+        )
+
+        tibble(
+            difference = unname(
+                test$estimate["mean in group Below $50K"] -
+                test$estimate["mean in group $100K+"]
+            ),
+            conf_low = -test$conf.int[2],
+            conf_high = -test$conf.int[1],
+            p_value = test$p.value
+        )
+    }) |>
+    ungroup() |>
+    mutate(
+        p_adjusted = p.adjust(p_value, method = "bonferroni")
+    )
+
+commodity_tests
+```
+
+</details>
+
+Lower-income households allocate a larger share of Grocery spending to private label, with particularly pronounced differences in soft drinks, cheese, and fluid milk.
+
+## Recommendation
+
+Kroger should prioritize private-label positioning and promotion for lower-income households in high-volume Grocery categories where the income gap in private-label purchasing is strongest.
+
+The clearest opportunities in this analysis are:
+
+- Cheese
+- Soft drinks
+- Fluid milk products
+
+Kroger should also investigate why $100K+ households show lower private-label adoption in these categories.
+
+## Limitations
+
+- Income is only available for a subset of households.
+- This is observational analysis, so income should not be interpreted as causing private-label purchasing.
+- Household composition, shopping frequency, store location, and assortment could also contribute to the observed differences.
+- The commodity analysis examines only five high-sales Grocery categories.
+
+## Conclusion
+
+Private-label dollar share differs across income groups. The clearest difference is between households below $50K and households earning $100K or more.
+
+That gap becomes larger within Grocery and is most evident among the selected high-volume categories in cheese, soft drinks, and fluid milk products.
+
+---
+
+## Run the code
+
+The downloadable script requires `tidyverse`. Place `transaction_data.csv`, `product.csv`, and `hh_demographic.csv` in your R working directory before running it. The datasets are not included here.
+
+[← All projects](../../projects.qmd)
