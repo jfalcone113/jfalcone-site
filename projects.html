@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -72,8 +74,66 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-project-gallery .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-project-gallery'] = new List('listing-project-gallery', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -156,146 +216,182 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="page-intro">
 <p><span class="eyebrow">01 / Selected work</span></p>
-<section id="projects-are-coming-soon." class="level1">
-<h1>Projects are<br><span class="accent">coming soon.</span></h1>
+<section id="from-question-to-something-useful." class="level1">
+<h1>From question<br>to <span class="accent">something useful.</span></h1>
 <div class="lead-copy">
-<p>I’m currently organizing and documenting selected work across data science, machine learning, deep learning, optimization, and data engineering.</p>
+<p>A collection of projects, experiments, and past work. The process matters as much as the finished thing.</p>
 </div>
 </section>
 </div>
-<div class="closing-note">
-<p>In the meantime, you can explore my <a href="https://github.com/jfalcone113">GitHub ↗</a> or connect with me on <a href="https://www.linkedin.com/in/falconejoseph/">LinkedIn ↗</a>.</p>
-</div>
 <!--
-
-::: {.page-intro}
-[01 / Selected work]{.eyebrow}
-
-# From question<br>to [something useful.]{.accent}
-
-::: {.lead-copy}
-A collection of projects, experiments, and past work. The process matters as much as the finished thing.
-:::
-:::
-
-::::: {.project-stack}
-:::: {.project-card #project-one}
-::: {.project-art .art-analysis aria-hidden="true"}
-<span class="project-art-label">01 / INVESTIGATE</span>
-<div class="bar-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-<span class="project-art-caption">FIND THE SIGNAL.</span>
-:::
-::: {.project-body}
-[Research · Analysis]{.eyebrow}
-
-## Making a complex question clear
-
-[Example project — replace with your work]{.sample-label}
-
-Use this space for a research or analysis project. Explain the question, who needed the answer, and why it mattered.
-
-[Research]{.tag} [Analysis]{.tag} [Communication]{.tag}
-
-<details class="case-study">
-<summary>Explore the project outline <span aria-hidden="true">↗</span></summary>
-
-### The question
-
-[What problem were you trying to solve? Who was it for?]
-
-### My contribution
-
-[Describe your role, collaborators, tools, and key decisions.]
-
-### The approach
-
-[Explain the evidence, methods, constraints, and tradeoffs.]
-
-### The outcome
-
-[Share the result and what you learned. Use a metric only if you can support it.]
-
-</details>
-:::
-::::
-
-:::: {.project-card #project-two}
-::: {.project-art .art-build aria-hidden="true"}
-<span class="project-art-label">02 / BUILD</span>
-<div class="mock-window"><div class="mock-top"><i></i><i></i><i></i></div><div class="mock-layout"><b></b><b></b><b></b></div></div>
-<span class="project-art-caption">TURN IDEAS INTO TOOLS.</span>
-:::
-::: {.project-body}
-[Design · Development]{.eyebrow}
-
-## A small tool with a real purpose
-
-[Example project — replace with your work]{.sample-label}
-
-Introduce an app, dashboard, website, or other thing you built. Focus on the person using it and the problem it helps them solve.
-
-[Prototyping]{.tag} [Development]{.tag} [Iteration]{.tag}
-
-<details class="case-study">
-<summary>Explore the project outline <span aria-hidden="true">↗</span></summary>
-
-### The need
-
-[What was difficult before this existed?]
-
-### The build
-
-[Describe your contribution, your tools, and one important design decision.]
-
-### The result
-
-[Explain what works, how you evaluated it, and what you would improve next.]
-
-</details>
-:::
-::::
-
-:::: {.project-card #project-three}
-::: {.project-art .art-experiment aria-hidden="true"}
-<span class="project-art-label">03 / EXPLORE</span>
-<div class="experiment-shape"></div>
-<span class="project-art-caption">FOLLOW THE QUESTION.</span>
-:::
-::: {.project-body}
-[Independent · Exploratory]{.eyebrow}
-
-## An idea worth following
-
-[Example project — replace with your work]{.sample-label}
-
-Make room for a personal experiment, creative project, course assignment, or work in progress. Not everything needs to be a polished case study.
-
-[Learning]{.tag} [Experimentation]{.tag}
-
-<details class="case-study">
-<summary>Explore the project outline <span aria-hidden="true">↗</span></summary>
-
-### The spark
-
-[What made you curious?]
-
-### The exploration
-
-[What did you try, make, or discover?]
-
-### What's next
-
-[What would you explore with more time?]
-</details>
-:::
-::::
-:::::
-
-::: {.closing-note}
-Want to hear more about the work? [Get in touch →](contact.qmd)
-:::
-
+Add a .qmd file in projects/ (or projects/project-name/index.qmd).
+Include title and description in its YAML front matter; optionally add
+image, image-alt, and categories. Rebuild the website to refresh the gallery.
+Example front matter:
+---
+title: "Project title"
+description: "A short summary of the question, approach, and result."
+image: "thumbnail.png"
+image-alt: "A description of the project preview"
+categories: [Data Science, Machine Learning]
+---
+Image paths are relative to the project file. Images are optional.
 -->
+<div id="listing-project-gallery" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="VGFibGVhdSUyQ0RhdGElMjBWaXN1YWxpemF0aW9uJTJDQW5hbHlzaXM=" data-listing-file-modified-sort="1792445741289" data-listing-reading-time-sort="1" data-listing-word-count-sort="64">
+<a href="./projects/airport-performance.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./projects/airport-performance.png" class="thumbnail-image card-img" style="height: 200px;" alt="World map of airports colored by AirHelp Score">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Airport Performance
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('VGFibGVhdQ=='); return false;">Tableau</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpc3VhbGl6YXRpb24='); return false;">Data Visualization</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QW5hbHlzaXM='); return false;">Analysis</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>An interactive Tableau story exploring airport rankings, on-time performance, customer opinion, and amenities.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="UiUyQ1NoaW55JTJDRm9yZWNhc3Rpbmc=" data-listing-file-modified-sort="1792445049381" data-listing-reading-time-sort="1" data-listing-word-count-sort="64">
+<a href="./projects/cd-forecasting.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./projects/cd-forecasting.png" class="thumbnail-image card-img" style="height: 200px;" alt="Dashboard showing historical CD rates for 12-, 24-, and 48-month terms">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+CD Rate Forecasting
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2hpbnk='); return false;">Shiny</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Rm9yZWNhc3Rpbmc='); return false;">Forecasting</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Explore CD rates and compare time-series forecasting models in an interactive dashboard.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="UiUyQ0RhdGElMjBWaXN1YWxpemF0aW9uJTJDRXZlbnQlMjBBbmFseXRpY3M=" data-listing-file-modified-sort="1792446561363" data-listing-reading-time-sort="15" data-listing-word-count-sort="2884">
+<a href="./projects/charlotte-engagement/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./projects/charlotte-engagement/haslam.png" class="thumbnail-image card-img" style="height: 200px;" alt="University of Tennessee Haslam College of Business logo">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Charlotte Capital Connection 2026
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpc3VhbGl6YXRpb24='); return false;">Data Visualization</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RXZlbnQlMjBBbmFseXRpY3M='); return false;">Event Analytics</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>An event registration and engagement report examining alumni affiliations, academic programs, employer representation, and event selection.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="UiUyQ1N0YXRpc3RpY2FsJTIwSW5mZXJlbmNlJTJDUmV0YWlsJTIwQW5hbHl0aWNz" data-listing-file-modified-sort="1792446238072" data-listing-reading-time-sort="4" data-listing-word-count-sort="754">
+<a href="./projects/household-shopping/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./projects/household-shopping/store.png" class="thumbnail-image card-img" style="height: 200px;" alt="A shopper walking down a grocery store aisle">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Household Shopping Behavior
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljYWwlMjBJbmZlcmVuY2U='); return false;">Statistical Inference</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UmV0YWlsJTIwQW5hbHl0aWNz'); return false;">Retail Analytics</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Statistical inference in R examining household spending, changes in spending per trip, income groups, and demographic coverage.</p>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="UiUyQ1N0YXRpc3RpY2FsJTIwSW5mZXJlbmNlJTJDUmV0YWlsJTIwQW5hbHl0aWNz" data-listing-file-modified-sort="1792446238073" data-listing-reading-time-sort="16" data-listing-word-count-sort="3116">
+<a href="./projects/private-label-kroger/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./projects/private-label-kroger/kroger.png" class="thumbnail-image card-img" style="height: 200px;" alt="Kroger logo with the slogan Fresh for Everyone">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Private-Label Purchasing at Kroger
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljYWwlMjBJbmZlcmVuY2U='); return false;">Statistical Inference</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UmV0YWlsJTIwQW5hbHl0aWNz'); return false;">Retail Analytics</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>A team project examining household income and private-label spending, with comparisons across Grocery categories.</p>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+<div id="projects-empty" class="empty-state">
+<p>Projects are coming soon. Check back for selected work and experiments.</p>
+</div>
+<div class="closing-note">
+<p>Explore my <a href="https://github.com/jfalcone113">GitHub ↗</a> or connect with me on <a href="https://www.linkedin.com/in/falconejoseph/">LinkedIn ↗</a>.</p>
+</div>
+<style>
+#listing-project-gallery:has(.quarto-grid-item) ~ #projects-empty { display: none; }
+#listing-project-gallery .quarto-grid-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+#listing-project-gallery .card-body { padding: 26px; }
+#listing-project-gallery .listing-title { font-size: 1.5rem; }
+#listing-project-gallery .listing-description { color: var(--muted); font-size: .9rem; }
+#listing-project-gallery .listing-category {
+  color: var(--muted);
+  border-color: var(--line);
+  font-family: var(--font-mono);
+}
+#listing-project-gallery .card-img-top { object-fit: cover; }
+</style>
+
 
 
 
