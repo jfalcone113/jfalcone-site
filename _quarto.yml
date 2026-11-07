@@ -7,7 +7,7 @@ project:
     - projects/**
     - resume.qmd
     - contact.qmd
-    - resources.qmd
+    - schedule.qmd
   resources:
     - CNAME
 
@@ -27,8 +27,8 @@ website:
         text: Resume
       - href: contact.qmd
         text: Contact
-      - href: resources.qmd
-        text: Resources
+      - href: schedule.qmd
+        text: Schedule
   search:
     location: navbar
     type: overlay

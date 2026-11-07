@@ -1,0 +1,29 @@
+---
+title: "Schedule"
+description: "Schedule a meeting with me using Google Calendar."
+aliases:
+  - /resources.html
+---
+
+::: {.page-intro}
+[BOOK A MEETING]{.eyebrow}
+
+# Let's<br>[meet.]{.accent}
+
+::: {.lead-copy}
+I’d be happy to talk about my work, discuss a job opportunity, or just get to know each other. Pick a time that works for you below.
+:::
+
+[Open booking page in Google Calendar ↗](https://calendar.app.google/ZYNheL3NpDhQSSeK8){.button .button-secondary}
+:::
+
+```{=html}
+<iframe
+    class="booking-calendar"
+    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ02GcnJZXTbx_uiNm3JMtqMcIHWb_ggGqH9CtVq_wF7jmvK-pkxVgwa8D7m6R3wy8_PjojBr_ct?gv=true"
+    title="Book a meeting with Joseph Falcone"
+    width="100%"
+    height="700"
+    loading="lazy">
+</iframe>
+```

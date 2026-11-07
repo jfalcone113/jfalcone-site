@@ -46,7 +46,8 @@ Knoxville, TN
 :::: {.resume-section #profile}
 ## Profile
 
-M.S. Business Analytics and AI candidate with experience in data engineering, machine learning, analytics, relational database design, and optimization. Skilled in Python, R, SQL, and Tableau, with experience building end-to-end data workflows, improving data quality, and transforming complex datasets into analytical and decision-support solutions.
+M.S. Business Analytics & AI candidate with experience in statistical analysis, predictive modeling, data engineering, and analytical reporting. Proficient in Python, R, and SQL, with applied experience in hypothesis testing, consumer behavior analysis, KPI development, and data visualization. Skilled in translating complex datasets into actionable insights, defining performance metrics, and communicating analytical findings to cross-functional stakeholders.
+
 ::::
 
 :::: {.resume-section #experience}
@@ -59,9 +60,11 @@ M.S. Business Analytics and AI candidate with experience in data engineering, ma
 
 [Haslam College of Business · Knoxville, TN]{.entry-subtitle}
 
-- Built an integrated alumni and employer engagement data framework by transforming fragmented records into a structured foundation for analysis and reporting.
-- Designed relational database models and workflows to improve data quality and support reliable tracking.
-- Built analytics and reporting solutions that converted raw engagement data into actionable information for Graduate Business Programs alumni and career-development teams.
+- Designed an integrated relational data framework consolidating alumni, employer, and engagement records to support consistent reporting and analysis.
+- Developed data cleaning, standardization, and validation workflows using R and Python to improve the reliability of engagement data.
+- Analyzed event registration and engagement data to identify participation trends, demographic patterns, and employer representation, translating findings into actionable insights for graduate program stakeholders.
+- Developed and published analytical reports and visualizations using R, Quarto, and GitHub Pages to communicate findings to graduate program stakeholders.
+
 :::
 
 ::: {.resume-entry}
@@ -82,8 +85,9 @@ M.S. Business Analytics and AI candidate with experience in data engineering, ma
 
 [NYPD Headquarters · New York, NY]{.entry-subtitle}
 
-- Collaborated across Personnel departments to align project requirements and ensure accurate implementation of process improvement strategies.
-- Developed dashboards, KPIs, process documentation, and reporting materials to improve clarity, communication, and understanding across teams and stakeholders.
+- Developed dashboards, key performance indicators, and reporting materials to support operational performance analysis across NYPD Personnel departments.
+- Collaborated with cross-functional stakeholders to identify reporting requirements, define performance metrics, and improve the consistency of operational information.
+
 :::
 
 ::: {.resume-entry}

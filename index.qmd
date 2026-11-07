@@ -1,7 +1,7 @@
 ---
 title: "Home"
 pagetitle: "Joseph Falcone — M.S. Business Analytics & AI Candidate"
-description: "Portfolio of Joseph Falcone, an M.S. Business Analytics and AI candidate focused on data science, machine learning, deep learning, and data engineering."
+description: "Joseph Falcone, M.S. Business Analytics and AI Candidate"
 body-classes: home-page
 ---
 
@@ -68,11 +68,11 @@ My experience, education, skills, and the path that connects them.
 ::: {.navigation-card}
 [03]{.card-number}
 
-### Open notebook
+### Book a Meeting
 
-Study sheets, useful documents, and small things worth passing along.
+Take a look at my schedule to find a time to meet!
 
-[Browse resources ↗](resources.qmd){.text-link}
+[Book a time to meet ↗](schedule.qmd){.text-link}
 :::
 ::::
 
@@ -83,7 +83,7 @@ Study sheets, useful documents, and small things worth passing along.
 ## From raw data.<br>To useful models.
 :::
 ::: {}
-I work across the full data science workflow, from cleaning and structuring data to building, evaluating, and interpreting models. My background includes machine learning, deep learning, statistical modeling, optimization, and data engineering, with a focus on turning complex data into reliable models, scalable systems, and useful insights.
+I work across the full data science workflow, from cleaning and structuring data to building, evaluating, and interpreting models. My background includes machine learning, deep learning, statistical modeling, optimization, and data engineering, with a focus on turning complex data into reliable models, scalable systems, and useful insights. **I'm actively seeking data science positions and excited to begin the next chapter of my career!** 
 
 [Python]{.tag} [R]{.tag} [SQL]{.tag} [TensorFlow]{.tag} [Machine Learning]{.tag} [Statistical Modeling]{.tag} [Data Engineering]{.tag} [Optimization]{.tag}
 :::

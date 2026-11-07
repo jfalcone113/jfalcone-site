@@ -32,7 +32,7 @@ Feel free to reach out — I’m always happy to connect.
 
 [**GitHub**<br>Code, experiments, and works in progress <span aria-hidden="true">↗</span>](https://github.com/jfalcone113){.social-link}
 
-[**The resource shelf**<br>Study guides, notes, and technical resources <span aria-hidden="true">→</span>](resources.qmd){.social-link}
+[**Book a meeting**<br>Find a time to chat <span aria-hidden="true">→</span>](schedule.qmd){.social-link}
 :::
 ::::
 
