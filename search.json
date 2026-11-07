@@ -1,31 +1,10 @@
 [
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
     "section": "",
-    "text": "RESOURCES\n\n\n\nA small, growing shelf of study sheets, documents, and useful things. Some are polished; others are notes from the middle of figuring it out.\nNo matches yet. Try another search or choose “Everything.”"
-  },
-  {
-    "objectID": "resources.html#bzan-535-statistical-methods",
-    "href": "resources.html#bzan-535-statistical-methods",
-    "title": "Resources",
-    "section": "BZAN 535 — Statistical Methods",
-    "text": "BZAN 535 — Statistical Methods\nAn interactive Quarto study guide covering key concepts and examples for the BZAN 535 midterm (Fall 2026).\nBZAN 535 Fall 2026\nOpen resource ↗"
-  },
-  {
-    "objectID": "resources.html#bzan-554-deep-learning",
-    "href": "resources.html#bzan-554-deep-learning",
-    "title": "Resources",
-    "section": "BZAN 554 — Deep Learning",
-    "text": "BZAN 554 — Deep Learning\nA continuously growing guide to BZAN 554 — Deep Learning, updated throughout the course with new concepts and reference material.\nComing Soon"
-  },
-  {
-    "objectID": "resources.html#bzan-542-machine-learning",
-    "href": "resources.html#bzan-542-machine-learning",
-    "title": "Resources",
-    "section": "BZAN 542 — Machine Learning",
-    "text": "BZAN 542 — Machine Learning\nA continuously growing guide to BZAN 542 — Machine Learning, covering predictive modeling, model evaluation, clustering, and other core machine learning methods.\nComing Soon"
+    "text": "BOOK A MEETING\n\nLet’smeet.\n\nI’d be happy to talk about my work, discuss a job opportunity, or just get to know each other. Pick a time that works for you below.\n\nOpen booking page in Google Calendar ↗"
   },
   {
     "objectID": "resume.html",
@@ -46,14 +25,14 @@
     "href": "resume.html#profile",
     "title": "Resume",
     "section": "Profile",
-    "text": "Profile\nM.S. Business Analytics and AI candidate with experience in data engineering, machine learning, analytics, relational database design, and optimization. Skilled in Python, R, SQL, and Tableau, with experience building end-to-end data workflows, improving data quality, and transforming complex datasets into analytical and decision-support solutions."
+    "text": "Profile\nM.S. Business Analytics & AI candidate with experience in statistical analysis, predictive modeling, data engineering, and analytical reporting. Proficient in Python, R, and SQL, with applied experience in hypothesis testing, consumer behavior analysis, KPI development, and data visualization. Skilled in translating complex datasets into actionable insights, defining performance metrics, and communicating analytical findings to cross-functional stakeholders."
   },
   {
     "objectID": "resume.html#experience",
     "href": "resume.html#experience",
     "title": "Resume",
     "section": "Experience",
-    "text": "Experience\n\nAug 2026 — Present\n\nData Support Specialist\nHaslam College of Business · Knoxville, TN\n\nBuilt an integrated alumni and employer engagement data framework by transforming fragmented records into a structured foundation for analysis and reporting.\nDesigned relational database models and workflows to improve data quality and support reliable tracking.\nBuilt analytics and reporting solutions that converted raw engagement data into actionable information for Graduate Business Programs alumni and career-development teams.\n\n\n\n\nMar 2026 — May 2026\n\nFinancial Consultant\nUT Federal Credit Union · Knoxville, TN\n\nAdvised members on banking products and financial solutions such as checking, savings, and credit accounts, aligning recommendations with individual financial goals.\nBuilt and maintained strong member relationships through personalized service, attention to detail, and support, facilitating a trusted fiduciary relationship.\n\n\n\n\nJun 2025 — Jan 2026\n\nBusiness Process Improvement Aid\nNYPD Headquarters · New York, NY\n\nCollaborated across Personnel departments to align project requirements and ensure accurate implementation of process improvement strategies.\nDeveloped dashboards, KPIs, process documentation, and reporting materials to improve clarity, communication, and understanding across teams and stakeholders.\n\n\n\n\nApr 2025 — May 2026\n\nVice President of Industry Outreach\nBusiness Analytics Society · University of Tennessee\n\nCollaborated with faculty, alumni, and industry leaders to align organization events and resources with academic and industry trends, enhancing the practical value of student-member experiences."
+    "text": "Experience\n\nAug 2026 — Present\n\nData Support Specialist\nHaslam College of Business · Knoxville, TN\n\nDesigned an integrated relational data framework consolidating alumni, employer, and engagement records to support consistent reporting and analysis.\nDeveloped data cleaning, standardization, and validation workflows using R and Python to improve the reliability of engagement data.\nAnalyzed event registration and engagement data to identify participation trends, demographic patterns, and employer representation, translating findings into actionable insights for graduate program stakeholders.\nDeveloped and published analytical reports and visualizations using R, Quarto, and GitHub Pages to communicate findings to graduate program stakeholders.\n\n\n\n\nMar 2026 — May 2026\n\nFinancial Consultant\nUT Federal Credit Union · Knoxville, TN\n\nAdvised members on banking products and financial solutions such as checking, savings, and credit accounts, aligning recommendations with individual financial goals.\nBuilt and maintained strong member relationships through personalized service, attention to detail, and support, facilitating a trusted fiduciary relationship.\n\n\n\n\nJun 2025 — Jan 2026\n\nBusiness Process Improvement Aid\nNYPD Headquarters · New York, NY\n\nDeveloped dashboards, key performance indicators, and reporting materials to support operational performance analysis across NYPD Personnel departments.\nCollaborated with cross-functional stakeholders to identify reporting requirements, define performance metrics, and improve the consistency of operational information.\n\n\n\n\nApr 2025 — May 2026\n\nVice President of Industry Outreach\nBusiness Analytics Society · University of Tennessee\n\nCollaborated with faculty, alumni, and industry leaders to align organization events and resources with academic and industry trends, enhancing the practical value of student-member experiences."
   },
   {
     "objectID": "resume.html#education",
@@ -263,6 +242,6 @@
     "href": "contact.html#elsewhere-online",
     "title": "Contact",
     "section": "Elsewhere online",
-    "text": "Elsewhere online\nLinkedInExperience, connections, and conversation ↗\nGitHubCode, experiments, and works in progress ↗\nThe resource shelfStudy guides, notes, and technical resources →"
+    "text": "Elsewhere online\nLinkedInExperience, connections, and conversation ↗\nGitHubCode, experiments, and works in progress ↗\nBook a meetingFind a time to chat →"
   }
 ]

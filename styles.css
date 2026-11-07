@@ -98,6 +98,13 @@ main { min-width: 0; }
 .closing-note a { font-weight: 600; white-space: nowrap; }
 .closing-note p { margin: 0; }
 
+.booking-calendar {
+  display: block;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+}
+
 /* Home */
 .hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 70px; align-items: center; padding: 76px 0 64px; }
 .hero h1 { font-size: clamp(3.6rem, 6.7vw, 5.65rem); line-height: 1.02; letter-spacing: -.065em; margin-bottom: 27px; }
